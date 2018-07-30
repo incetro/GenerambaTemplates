@@ -35,7 +35,6 @@ code_files:
 - {name: View/ContentManager/{{ custom_parameters.cell }}CellControllerFactory/CellControllerFactory.swift, custom_name: "{{ custom_parameters.cell }}CellControllerFactory.swift", path: Code/View/ContentManager/CellControllerFactory/CellControllerFactory.swift.liquid}
 - {name: View/ContentManager/{{ custom_parameters.cell }}CellControllerFactory/CellControllerFactoryImplementation.swift, custom_name: "{{ custom_parameters.cell }}CellControllerFactoryImplementation.swift", path: Code/View/ContentManager/CellControllerFactory/CellControllerFactoryImplementation.swift.liquid}
 
-
 # Presenter
 - {name: Presenter/ModuleInput.swift, path: Code/Presenter/ModuleInput.swift.liquid}
 - {name: Presenter/Presenter.swift, path: Code/Presenter/Presenter.swift.liquid}
@@ -50,3 +49,21 @@ code_files:
 # Router
 - {name: Router/RouterInput.swift, path: Code/Router/RouterInput.swift.liquid}
 - {name: Router/Router.swift, path: Code/Router/Router.swift.liquid}
+
+test_files:
+
+# Assembly tests
+- {name: Assembly/AssemblyTests.swift, path: Tests/Assembly/AssemblyTests.swift.liquid}
+
+# View tests
+- {name: View/ViewTests.swift, path: Tests/View/ViewTests.swift.liquid}
+- {name: View/ContentManager/ContentManagerTests.swift, path: Tests/View/ContentManager/ContentManagerTests.swift.liquid}
+
+# Interactor tests
+- {name: Interactor/InteractorTests.swift, path: Tests/Interactor/InteractorTests.swift.liquid}
+
+# Presenter tests
+- {name: Presenter/PresenterTests.swift, path: Tests/Presenter/PresenterTests.swift.liquid}
+
+# Router tests
+- {name: Router/RouterTests.swift, path: Tests/Router/RouterTests.swift.liquid}

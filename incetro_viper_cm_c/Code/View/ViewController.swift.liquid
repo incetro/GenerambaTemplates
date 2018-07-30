@@ -9,7 +9,7 @@ class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     // MARK: - Properties
     
     /// Table with {{ custom_parameters.cell }} cells
-    fileprivate let tableView: UITableView = {
+    let tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         return tableView
