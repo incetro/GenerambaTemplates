@@ -11,7 +11,7 @@ class {{ custom_parameters.cell }}CellController: GenericCellController<{{ custo
     /// ViewModel instance
     private let viewModel: {{ custom_parameters.cell }}CellViewModelProtocol
     
-    /// FeedRouter instance
+    /// {{ module_info.name }}Router instance
     private weak var {{ module_info.name | downcase }}Router: {{ module_info.name }}RouterInput?
 
     // MARK: - Initializers
