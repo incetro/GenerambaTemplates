@@ -4,12 +4,12 @@ import Swinject
 
 // MARK: - {{ custom_parameters.cell }}CellControllerFactoryImplementation
 
-class {{ custom_parameters.cell }}CellControllerFactoryImplementation {
+final class {{ custom_parameters.cell }}CellControllerFactoryImplementation {
 
 	// MARK: - Properties
     
     /// DI container instance
-    fileprivate let container: Container
+    private let container: Container
     
     // MARK: - Initializers
     

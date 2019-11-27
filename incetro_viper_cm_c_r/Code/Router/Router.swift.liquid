@@ -26,6 +26,8 @@ class {{ prefix }}{{ module_info.name }}Router {
 extension {{ prefix }}{{ module_info.name }}Router: {{ prefix }}{{ module_info.name }}RouterInput {
     
     func close() {
-        transitionHandler?.closeCurrentModule(animated: true)
+        try transitionHandler?
+            .closeCurrentModule()
+            .perform()
     }
 }
