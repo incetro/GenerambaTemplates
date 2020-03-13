@@ -6,6 +6,10 @@ import UIKit
 
 final class {{ custom_parameters.cell }}Cell: UITableViewCell {
     
+    // MARK: - Aliases
+
+    private typealias LayoutConstant = {{ custom_parameters.cell }}CellConstants
+
     // MARK: - Properties
     
     // MARK: - UITableViewCell
@@ -16,6 +20,7 @@ final class {{ custom_parameters.cell }}Cell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        designer.add(designable: self)
     }
     
     override func prepareForReuse() {
@@ -27,4 +32,34 @@ final class {{ custom_parameters.cell }}Cell: UITableViewCell {
     func setup(with viewModel: {{ custom_parameters.cell }}CellViewModelProtocol) {
         
     }
+}
+
+// MARK: - Layout
+
+extension {{ custom_parameters.cell }}Cell {
+
+    private func setup() {
+
+    }
+}
+
+// MARK: - Actions
+
+extension {{ custom_parameters.cell }}Cell {
+
+}
+
+// MARK: - Designable
+
+extension {{ custom_parameters.cell }}Cell: Designable {
+
+    func design(appearance: Appearance) {
+        let design = appearance.{{ custom_parameters.cell | downcase }}CellAppearance
+        backgroundColor = design.backgroundColor
+    }
+}
+
+// MARK: - {{ custom_parameters.cell }}CellConstants
+
+private struct {{ custom_parameters.cell }}CellConstants {
 }

@@ -4,8 +4,12 @@ import UIKit
 
 // MARK: - {{ prefix }}{{ module_info.name }}ViewController
 
-class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
+final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     
+    // MARK: - Aliases
+
+    private typealias LayoutConstant = {{ prefix }}{{ module_info.name }}ViewControllerConstants
+
     // MARK: - Properties
     
     /// Table with NAME
@@ -24,7 +28,9 @@ class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     // MARK: - ViewController
 
     override func viewDidLoad() {
-    	super.viewDidLoad()
+        super.viewDidLoad()
+        designer.add(designable: self)
+        localizer.add(localizable: self)
         output?.didTriggerViewReadyEvent()
     }
 
@@ -35,6 +41,21 @@ class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
         view.addSubview(tableView.prepareForAutolayout())
         tableView.pinToSuperview(withOffset: 0)
     }
+}
+
+// MARK: - Layout
+
+extension {{ prefix }}{{ module_info.name }}ViewController {
+
+    private func setup() {
+
+    }
+}
+
+// MARK: - Actions
+
+extension {{ prefix }}{{ module_info.name }}ViewController {
+
 }
 
 // MARK: - {{ prefix }}{{ module_info.name }}ViewInput
@@ -52,4 +73,27 @@ extension {{ prefix }}{{ module_info.name }}ViewController: ViewOutputProvider {
     var viewOutput: ModuleInput? {
         return self.output as? ModuleInput
     }
+}
+
+// MARK: - Localizable
+
+extension {{ prefix }}{{ module_info.name }}ViewController: Localizable {
+
+    func localize(language: Language) {
+    }
+}
+
+// MARK: - Designable
+
+extension {{ prefix }}{{ module_info.name }}ViewController: Designable {
+
+    func design(appearance: Appearance) {
+        let design = appearance.<#name#>
+        view.backgroundColor = design.backgroundColor
+    }
+}
+
+// MARK: - {{ prefix }}{{ module_info.name }}ViewControllerConstants
+
+private struct {{ prefix }}{{ module_info.name }}ViewControllerConstants {
 }

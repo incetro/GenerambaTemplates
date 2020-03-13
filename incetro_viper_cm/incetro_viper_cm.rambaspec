@@ -24,6 +24,7 @@ code_files:
 
 # Presenter
 - {name: Presenter/ModuleInput.swift, path: Code/Presenter/ModuleInput.swift.liquid}
+- {name: Presenter/ModuleOutput.swift, path: Code/Presenter/ModuleOutput.swift.liquid}
 - {name: Presenter/Presenter.swift, path: Code/Presenter/Presenter.swift.liquid}
 
 # Interactor

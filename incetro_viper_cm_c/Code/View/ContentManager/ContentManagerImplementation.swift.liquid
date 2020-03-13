@@ -4,7 +4,7 @@ import UIKit
 
 // MARK: - {{ prefix }}{{ module_info.name }}ContentManager
 
-class {{ prefix }}{{ module_info.name }}ContentManagerImplementation: NSObject, {{ prefix }}{{ module_info.name }}ContentManager {
+final class {{ prefix }}{{ module_info.name }}ContentManagerImplementation: NSObject, {{ prefix }}{{ module_info.name }}ContentManager {
     
     // MARK: - Properties
     
@@ -12,7 +12,7 @@ class {{ prefix }}{{ module_info.name }}ContentManagerImplementation: NSObject, 
     fileprivate let controllersFactory: {{ custom_parameters.cell }}CellControllerFactory
     
     /// Current controllers which manipulates tableView's cells
-    fileprivate var controllers: [TableCellController] = []
+    fileprivate var controllers: [{{ custom_parameters.cell }}CellController] = []
 
     /// UITableView with {{ custom_parameters.cell }} cells
     var tableView: UITableView?
@@ -50,7 +50,9 @@ class {{ prefix }}{{ module_info.name }}ContentManagerImplementation: NSObject, 
 
 extension {{ prefix }}{{ module_info.name }}ContentManagerImplementation: UITableViewDelegate {
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return controllers[indexPath.row].cellSize(reusableCellHolder: tableView).height
+    }
 }
 
 // MARK: - UITableViewDataSource

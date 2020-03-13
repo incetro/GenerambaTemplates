@@ -12,7 +12,7 @@ final class {{ custom_parameters.cell }}CellController: GenericCellController<{{
     private let viewModel: {{ custom_parameters.cell }}CellViewModelProtocol
     
     /// {{ module_info.name }}Router instance
-    private weak var {{ module_info.name | downcase }}Router: {{ module_info.name }}RouterInput?
+    private unowned var {{ module_info.name | downcase }}Router: {{ module_info.name }}RouterInput
 
     // MARK: - Initializers
 
@@ -28,5 +28,9 @@ final class {{ custom_parameters.cell }}CellController: GenericCellController<{{
     
     override func configureCell(_ cell: {{ custom_parameters.cell }}Cell) {
         cell.setup(with: viewModel)
+    }
+
+    override func cellSize(reusableCellHolder: UITableView) -> CGSize {
+        CGSize(width: reusableCellHolder.frame.width, height: 52)
     }
 }

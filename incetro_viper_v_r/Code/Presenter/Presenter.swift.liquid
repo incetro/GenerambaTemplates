@@ -8,6 +8,9 @@ class {{ prefix }}{{ module_info.name }}Presenter {
     
     // MARK: - Properties
     
+    /// ModuleOutput instance
+    weak var output: {{ prefix }}{{ module_info.name }}ModuleOutput?
+
     /// View instance
     weak var view: {{ prefix }}{{ module_info.name }}ViewInput?
 
@@ -41,5 +44,7 @@ extension {{ prefix }}{{ module_info.name }}Presenter: {{ prefix }}{{ module_inf
 
 extension {{ prefix }}{{ module_info.name }}Presenter: {{ prefix }}{{ module_info.name }}ModuleInput {
     
-    
+    func setModuleOutput(_ moduleOutput: ModuleOutput) {
+        output = moduleOutput as? {{ prefix }}{{ module_info.name }}ModuleOutput
+    }
 }

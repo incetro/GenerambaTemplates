@@ -8,6 +8,9 @@ license: "MIT"
 # The declarations for code files
 code_files:
 
+# Module
+- {name: Module/Module.swift, path: Code/Module/Module.swift.liquid}
+
 # Assembly
 - {name: Assembly/Assembly.swift, path: Code/Assembly/Assembly.swift.liquid}
 
@@ -15,9 +18,11 @@ code_files:
 - {name: View/ViewInput.swift, path: Code/View/ViewInput.swift.liquid}
 - {name: View/ViewOutput.swift, path: Code/View/ViewOutput.swift.liquid}
 - {name: View/View.swift, path: Code/View/View.swift.liquid}
+- {name: View/ViewAppearance.swift, path: Code/View/ViewAppearance.swift.liquid}
 
 # Presenter
 - {name: Presenter/ModuleInput.swift, path: Code/Presenter/ModuleInput.swift.liquid}
+- {name: Presenter/ModuleOutput.swift, path: Code/Presenter/ModuleOutput.swift.liquid}
 - {name: Presenter/Presenter.swift, path: Code/Presenter/Presenter.swift.liquid}
 
 # Interactor

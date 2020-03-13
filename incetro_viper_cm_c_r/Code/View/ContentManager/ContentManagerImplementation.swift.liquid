@@ -12,7 +12,7 @@ final class {{ prefix }}{{ module_info.name }}ContentManagerImplementation: NSOb
     private let controllersFactory: {{ custom_parameters.cell }}CellControllerFactory
     
     /// Current controllers which manipulates tableView's cells
-    private var controllers: [TableCellController] = []
+    private var controllers: [{{ custom_parameters.cell }}CellController] = []
 
     /// UITableView with {{ custom_parameters.cell }} cells
     var tableView: UITableView?
@@ -50,7 +50,9 @@ final class {{ prefix }}{{ module_info.name }}ContentManagerImplementation: NSOb
 
 extension {{ prefix }}{{ module_info.name }}ContentManagerImplementation: UITableViewDelegate {
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return controllers[indexPath.row].cellSize(reusableCellHolder: tableView).height
+    }
 }
 
 // MARK: - UITableViewDataSource
