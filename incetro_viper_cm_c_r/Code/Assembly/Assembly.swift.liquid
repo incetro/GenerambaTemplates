@@ -18,11 +18,6 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
     func obtainViewController() -> {{ prefix }}{{ module_info.name }}ViewController {
         return container.resolve({{ prefix }}{{ module_info.name }}ViewController.self).unwrap()
     }
-
-    func configureModuleForViewInput(viewInput: {{ prefix }}{{ module_info.name }}ViewController) {
-        viewInput.output = container.resolve({{ prefix }}{{ module_info.name }}ViewOutput.self, argument: viewInput as {{ prefix }}{{ module_info.name }}ViewInput)
-        viewInput.contentManager = container.resolve({{ prefix }}{{ module_info.name }}ContentManager.self)
-    }
     
     // MARK: - Assembly
     
