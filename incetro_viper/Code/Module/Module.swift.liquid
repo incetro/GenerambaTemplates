@@ -6,12 +6,12 @@ import UIKit
 
 final class {{ prefix }}{{ module_info.name }}Module: Module {
 
+    // MARK: - Aliases
+
     typealias Input = {{ prefix }}{{ module_info.name }}ModuleInput
     typealias View = {{ prefix }}{{ module_info.name }}ViewController
 
-    required init() {
-
-    }
+    // MARK: - Module
 
     static func instantiate() -> {{ prefix }}{{ module_info.name }}ViewController {
         return {{ prefix }}{{ module_info.name }}ModuleAssembly().obtainViewController()
