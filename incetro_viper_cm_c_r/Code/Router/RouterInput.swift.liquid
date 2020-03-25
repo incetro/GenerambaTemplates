@@ -4,8 +4,5 @@ import Foundation
 
 // MARK: - {{ prefix }}{{ module_info.name }}RouterInput
 
-protocol {{ prefix }}{{ module_info.name }}RouterInput: class {
-    
-    /// Close current module
-    func close()
+protocol {{ prefix }}{{ module_info.name }}RouterInput: class, RouterInput {
 }
