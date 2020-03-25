@@ -13,7 +13,7 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     // MARK: - Properties
     
     /// Table with NAME
-    fileprivate let tableView: UITableView = {
+    private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         return tableView
@@ -37,7 +37,7 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     // MARK: - Private
 
     /// Cards table view setup
-    fileprivate func setupTableView() {
+    private func setupTableView() {
         view.addSubview(tableView.prepareForAutolayout())
         tableView.pinToSuperview(withOffset: 0)
     }

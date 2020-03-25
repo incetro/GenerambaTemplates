@@ -9,10 +9,10 @@ final class {{ prefix }}{{ module_info.name }}ContentManagerImplementation: NSOb
     // MARK: - Properties
     
     /// {{ custom_parameters.cell }} controllers factory
-    fileprivate let controllersFactory: {{ custom_parameters.cell }}CellControllerFactory
+    private let controllersFactory: {{ custom_parameters.cell }}CellControllerFactory
     
     /// Current controllers which manipulates tableView's cells
-    fileprivate var controllers: [{{ custom_parameters.cell }}CellController] = []
+    private var controllers: [{{ custom_parameters.cell }}CellController] = []
 
     /// UITableView with {{ custom_parameters.cell }} cells
     var tableView: UITableView?
