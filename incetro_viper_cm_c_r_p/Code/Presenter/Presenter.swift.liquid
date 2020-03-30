@@ -71,7 +71,7 @@ extension {{ prefix }}{{ module_info.name }}Presenter: {{ prefix }}{{ module_inf
         view?.showErrorMessage(errorMessage)
     }
 
-    func obtain{{ custom_parameters.entities }}Success(routes: [RoutePlainObject], isTotalEmpty: Bool) {
+    func obtain{{ custom_parameters.entities }}Success(routes: [RoutePlainObject]) {
         view?.stopIndication()
         view?.stopPullToRefreshIfNeeded()
         add({{ custom_parameters.entities | downcase }}: {{ custom_parameters.entities | downcase }})
