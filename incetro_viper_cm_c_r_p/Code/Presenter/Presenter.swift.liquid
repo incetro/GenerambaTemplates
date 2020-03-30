@@ -39,7 +39,7 @@ final class {{ prefix }}{{ module_info.name }}Presenter {
 
     private func add({{ custom_parameters.entities | downcase }}: [{{ custom_parameters.plain }}PlainObject]) {
         self.{{ custom_parameters.entities | downcase }}.append(contentsOf: {{ custom_parameters.entities | downcase }})
-        let viewModels = viewModelDesigner.viewModels(from{{ custom_parameters.entities }}: self.{{ custom_parameters.entities | downcase }})
+        let viewModels = viewModelDesigner.viewModels(from: self.{{ custom_parameters.entities | downcase }})
         view?.update(viewModels)
     }
 }
@@ -71,7 +71,7 @@ extension {{ prefix }}{{ module_info.name }}Presenter: {{ prefix }}{{ module_inf
         view?.showErrorMessage(errorMessage)
     }
 
-    func obtain{{ custom_parameters.entities }}Success(routes: [RoutePlainObject]) {
+    func obtain{{ custom_parameters.entities }}Success({ custom_parameters.entities | downcase }}: [{ custom_parameters.plain }}PlainObject]) {
         view?.stopIndication()
         view?.stopPullToRefreshIfNeeded()
         add({{ custom_parameters.entities | downcase }}: {{ custom_parameters.entities | downcase }})

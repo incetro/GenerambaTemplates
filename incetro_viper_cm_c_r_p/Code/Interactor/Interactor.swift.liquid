@@ -52,5 +52,11 @@ final class {{ prefix }}{{ module_info.name }}Interactor {
 
 extension {{ prefix }}{{ module_info.name }}Interactor: {{ prefix }}{{ module_info.name }}InteractorInput {
     
-    
+    func obtain{{ custom_parameters.entities }}() {
+        paginator.fetchFirstPage()
+    }
+
+    func obtainNextPage() {
+        paginator.fetchNextPage()
+    }
 }
