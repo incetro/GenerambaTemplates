@@ -58,7 +58,7 @@ extension {{ prefix }}{{ module_info.name }}ViewController {
 
     @objc private func refreshAction() {
         setupInfiniteScroll(isEnabled: true)
-        output?.didTriggerReload({{ custom_parameters.entities }}Event()
+        output?.didTriggerReload{{ custom_parameters.entities }}Event()
     }
 }
 

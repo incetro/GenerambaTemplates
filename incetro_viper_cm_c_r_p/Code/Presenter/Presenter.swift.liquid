@@ -15,7 +15,7 @@ final class {{ prefix }}{{ module_info.name }}Presenter {
     weak var view: {{ prefix }}{{ module_info.name }}ViewInput?
 
     /// {{ prefix }}{{ module_info.name }}CellViewModelProtocol factory
-    private let {{ custom_parameters.cell | downcase }}CellViewModelDesigner: {{ custom_parameters.cell }}CellViewModelDesigner
+    private let viewModelDesigner: {{ custom_parameters.cell }}CellViewModelDesigner
     
     /// Current displaying routes
     private var {{ custom_parameters.entities | downcase }}: [{{ custom_parameters.plain }}PlainObject] = []
@@ -31,15 +31,15 @@ final class {{ prefix }}{{ module_info.name }}Presenter {
     /// Default initializer
     ///
     /// - Parameter {{ custom_parameters.cell | downcase }}CellViewModelDesigner: {{ custom_parameters.cell }}CellViewModelProtocol factory
-    init({{ custom_parameters.cell | downcase }}CellViewModelDesigner: {{ custom_parameters.cell }}CellViewModelDesigner) {
-        self.{{ custom_parameters.cell | downcase }}CellViewModelDesigner = {{ custom_parameters.cell | downcase }}CellViewModelDesigner
+    init(viewModelDesigner: {{ custom_parameters.cell }}CellViewModelDesigner) {
+        self.viewModelDesigner = viewModelDesigner
     }
 
     // MARK - Private
 
     private func add({{ custom_parameters.entities | downcase }}: [{{ custom_parameters.plain }}PlainObject]) {
         self.{{ custom_parameters.entities | downcase }}.append(contentsOf: {{ custom_parameters.entities | downcase }})
-        let viewModels = routeCellViewModelDesigner.viewModels(fromRoutes: self.{{ custom_parameters.entities | downcase }})
+        let viewModels = viewModelDesigner.viewModels(from{{ custom_parameters.entities }}: self.{{ custom_parameters.entities | downcase }})
         view?.update(viewModels)
     }
 }
@@ -52,7 +52,7 @@ extension {{ prefix }}{{ module_info.name }}Presenter: {{ prefix }}{{ module_inf
         view?.setupInitialState()
     }
 
-    func didTriggerReloadRoutesEvent() {
+    func didTriggerReload{{ custom_parameters.entities }}Event() {
         {{ custom_parameters.entities | downcase }}.removeAll()
         interactor?.obtain{{ custom_parameters.entities }}()
     }
@@ -71,7 +71,7 @@ extension {{ prefix }}{{ module_info.name }}Presenter: {{ prefix }}{{ module_inf
         view?.showErrorMessage(errorMessage)
     }
 
-    func obtainRoutesSuccess(routes: [RoutePlainObject], isTotalEmpty: Bool) {
+    func obtain{{ custom_parameters.entities }}Success(routes: [RoutePlainObject], isTotalEmpty: Bool) {
         view?.stopIndication()
         view?.stopPullToRefreshIfNeeded()
         add({{ custom_parameters.entities | downcase }}: {{ custom_parameters.entities | downcase }})
