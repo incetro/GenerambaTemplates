@@ -71,7 +71,7 @@ extension {{ prefix }}{{ module_info.name }}Presenter: {{ prefix }}{{ module_inf
         view?.showErrorMessage(errorMessage)
     }
 
-    func obtain{{ custom_parameters.entities }}Success({ custom_parameters.entities | downcase }}: [{ custom_parameters.plain }}PlainObject]) {
+    func obtain{{ custom_parameters.entities }}Success({{ custom_parameters.entities | downcase }}: [{{ custom_parameters.plain }}PlainObject]) {
         view?.stopIndication()
         view?.stopPullToRefreshIfNeeded()
         add({{ custom_parameters.entities | downcase }}: {{ custom_parameters.entities | downcase }})
