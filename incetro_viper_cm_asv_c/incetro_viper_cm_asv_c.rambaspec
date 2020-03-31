@@ -31,8 +31,8 @@ code_files:
 - {name: Presenter/ModuleInput.swift, path: Code/Presenter/ModuleInput.swift.liquid}
 - {name: Presenter/ModuleOutput.swift, path: Code/Presenter/ModuleOutput.swift.liquid}
 - {name: Presenter/Presenter.swift, path: Code/Presenter/Presenter.swift.liquid}
-- {name: Presenter/{{ custom_parameters.cell }}CellViewModelDesigner/CellViewModelDesigner.swift, path: Code/Presenter/CellViewModelDesigner/CellViewModelDesigner.swift.liquid}
-- {name: Presenter/{{ custom_parameters.cell }}CellViewModelDesigner/CellViewModelDesignerImplementation.swift, path: Code/Presenter/CellViewModelDesigner/CellViewModelDesignerImplementation.swift.liquid}
+- {name: Presenter/{{ custom_parameters.cell }}ViewModelDesigner/ViewModelDesigner.swift, path: Code/Presenter/ViewModelDesigner/ViewModelDesigner.swift.liquid}
+- {name: Presenter/{{ custom_parameters.cell }}ViewModelDesigner/ViewModelDesignerImplementation.swift, path: Code/Presenter/ViewModelDesigner/ViewModelDesignerImplementation.swift.liquid}
 
 # Interactor
 - {name: Interactor/InteractorInput.swift, path: Code/Interactor/InteractorInput.swift.liquid}
