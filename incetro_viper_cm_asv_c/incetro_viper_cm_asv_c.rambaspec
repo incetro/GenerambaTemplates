@@ -24,8 +24,6 @@ code_files:
 - {name: View/ViewController.swift, path: Code/View/ViewController.swift.liquid}
 - {name: View/ViewControllerAppearance.swift, path: Code/View/ViewControllerAppearance.swift.liquid}
 
-- {name: View/ContentManager/{{ custom_parameters.cell }}CellControllerFactory/{{ custom_parameters.cell }}CellController/CellController.swift, custom_name: "{{ custom_parameters.cell }}CellController.swift", path: Code/View/ContentManager/CellControllerFactory/CellController/CellController.swift.liquid}
-
 - {name: View/ContentManager/{{ prefix }}{{ module_info.name }}ViewModel/ViewModelProtocol.swift, custom_name: "{{ prefix }}{{ module_info.name }}ViewModelProtocol.swift", path: Code/View/ContentManager/CellViewModel/CellViewModelProtocol.swift.liquid}
 - {name: View/ContentManager/{{ prefix }}{{ module_info.name }}ViewModel/ViewModel.swift, custom_name: "{{ prefix }}{{ module_info.name }}ViewModel.swift", path: Code/View/ContentManager/CellViewModel/CellViewModel.swift.liquid}
 
