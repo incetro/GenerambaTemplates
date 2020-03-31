@@ -1,5 +1,5 @@
 # Template information section
-name: "incetro_viper_cm_c"
+name: "incetro_viper_cm_asv_c"
 summary: "Swift VIPER module template with UIViewController playing as a View and with CellController approach"
 author: "incetro"
 version: "0.0.1"
@@ -26,15 +26,8 @@ code_files:
 
 - {name: View/ContentManager/{{ custom_parameters.cell }}CellControllerFactory/{{ custom_parameters.cell }}CellController/CellController.swift, custom_name: "{{ custom_parameters.cell }}CellController.swift", path: Code/View/ContentManager/CellControllerFactory/CellController/CellController.swift.liquid}
 
-- {name: View/ContentManager/{{ custom_parameters.cell }}CellControllerFactory/{{ custom_parameters.cell }}CellController/{{ custom_parameters.cell }}Cell/Cell.swift, custom_name: "{{ custom_parameters.cell }}Cell.swift", path: Code/View/ContentManager/CellControllerFactory/CellController/Cell/Cell.swift.liquid}
-- {name: View/ContentManager/{{ custom_parameters.cell }}CellControllerFactory/{{ custom_parameters.cell }}CellController/{{ custom_parameters.cell }}Cell/Cell.swift, custom_name: "{{ custom_parameters.cell }}CellAppearance.swift", path: Code/View/ContentManager/CellControllerFactory/CellController/Cell/CellAppearance.swift.liquid}
-
-- {name: View/ContentManager/{{ custom_parameters.cell }}CellControllerFactory/{{ custom_parameters.cell }}CellController/{{ custom_parameters.cell }}Cell/{{ custom_parameters.cell }}CellViewModel/CellViewModelProtocol.swift, custom_name: "{{ custom_parameters.cell }}CellViewModelProtocol.swift", path: Code/View/ContentManager/CellControllerFactory/CellController/Cell/CellViewModel/CellViewModelProtocol.swift.liquid}
-
-- {name: View/ContentManager/{{ custom_parameters.cell }}CellControllerFactory/{{ custom_parameters.cell }}CellController/{{ custom_parameters.cell }}Cell/{{ custom_parameters.cell }}CellViewModel/CellViewModel.swift, custom_name: "{{ custom_parameters.cell }}CellViewModel.swift", path: Code/View/ContentManager/CellControllerFactory/CellController/Cell/CellViewModel/CellViewModel.swift.liquid}
-
-- {name: View/ContentManager/{{ custom_parameters.cell }}CellControllerFactory/CellControllerFactory.swift, custom_name: "{{ custom_parameters.cell }}CellControllerFactory.swift", path: Code/View/ContentManager/CellControllerFactory/CellControllerFactory.swift.liquid}
-- {name: View/ContentManager/{{ custom_parameters.cell }}CellControllerFactory/CellControllerFactoryImplementation.swift, custom_name: "{{ custom_parameters.cell }}CellControllerFactoryImplementation.swift", path: Code/View/ContentManager/CellControllerFactory/CellControllerFactoryImplementation.swift.liquid}
+- {name: View/ContentManager/{{ prefix }}{{ module_info.name }}ViewModel/ViewModelProtocol.swift, custom_name: "{{ prefix }}{{ module_info.name }}ViewModelProtocol.swift", path: Code/View/ContentManager/CellViewModel/CellViewModelProtocol.swift.liquid}
+- {name: View/ContentManager/{{ prefix }}{{ module_info.name }}ViewModel/ViewModel.swift, custom_name: "{{ prefix }}{{ module_info.name }}ViewModel.swift", path: Code/View/ContentManager/CellViewModel/CellViewModel.swift.liquid}
 
 # Presenter
 - {name: Presenter/ModuleInput.swift, path: Code/Presenter/ModuleInput.swift.liquid}
