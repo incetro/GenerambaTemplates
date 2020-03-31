@@ -1,6 +1,7 @@
 {% include 'header' %}
 
 import UIKit
+import AloeStackView
 
 // MARK: - {{ prefix }}{{ module_info.name }}ViewController
 
@@ -63,7 +64,7 @@ extension {{ prefix }}{{ module_info.name }}ViewController: {{ prefix }}{{ modul
         setupTableView()
     }
     
-    func update(_ viewModel: {{ custom_parameters.cell }}ViewModelProtocol) {
+    func update(_ viewModel: {{ prefix }}{{ module_info.name }}ViewModelProtocol) {
         contentManager?.updateData(viewModel)
     }
 }

@@ -1,6 +1,7 @@
 {% include 'header' %}
 
 import Foundation
+import AloeStackView
 
 // MARK: - {{ prefix }}{{ module_info.name }}ContentManager
 
@@ -9,7 +10,7 @@ protocol {{ prefix }}{{ module_info.name }}ContentManager {
     /// Update table's data using some new viewModel
     ///
     /// - Parameter viewModel: new data
-    func updateData(_ viewModel: {{ custom_parameters.cell }}ViewModelProtocol)
+    func updateData(_ viewModel: {{ prefix }}{{ module_info.name }}ViewModelProtocol)
 
     /// Configures current stack view
     /// - Parameter stackView: current stack view

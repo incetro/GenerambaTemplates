@@ -16,7 +16,7 @@ final class {{ prefix }}{{ module_info.name }}ContentManagerImplementation: NSOb
 
     // MARK: - ContentManager
 
-    func updateData(_ viewModel: {{ custom_parameters.cell }}CellViewModelProtocol) {
+    func updateData(_ viewModel: {{ prefix }}{{ module_info.name }}CellViewModelProtocol) {
         guard let stackView = stackView else {
             return
         }

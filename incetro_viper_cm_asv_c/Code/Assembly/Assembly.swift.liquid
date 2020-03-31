@@ -34,7 +34,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
         }
         
         container.register({{ prefix }}{{ module_info.name }}ViewOutput.self) { (resolver, view: {{ prefix }}{{ module_info.name }}ViewInput) in
-            let viewModelDesigner = resolver.resolve({{ prefix }}{{ module_info.name }}viewModelDesigner.self).unwrap()
+            let viewModelDesigner = resolver.resolve({{ prefix }}{{ module_info.name }}ViewModelDesigner.self).unwrap()
             let presenter = {{ prefix }}{{ module_info.name }}Presenter(viewModelDesigner: viewModelDesigner)
             presenter.view = view
             return presenter
@@ -53,8 +53,8 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
             return interactor
         }
         
-        container.register({{ prefix }}{{ module_info.name }}viewModelDesigner.self) { resolver in
-            return {{ custom_parameters.cell }}CellViewModelDesignerImplementation()
+        container.register({{ prefix }}{{ module_info.name }}ViewModelDesigner.self) { resolver in
+            return {{ prefix }}{{ module_info.name }}ViewModelDesignerImplementation()
         }
             
         container.register({{ prefix }}{{ module_info.name }}ContentManager.self) { resolver in
