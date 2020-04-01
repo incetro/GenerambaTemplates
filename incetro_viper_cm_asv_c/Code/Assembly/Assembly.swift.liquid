@@ -13,23 +13,26 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
 
     // MARK: - Useful
 
-    func obtainViewController() -> {{ prefix }}{{ module_info.name }}ViewController {
-        return container.resolve({{ prefix }}{{ module_info.name }}ViewController.self).unwrap()
+    func obtainViewController(with{{ custom_parameters.plain }} {{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain | downcase }}PlainObject) -> {{ prefix }}{{ module_info.name }}ViewController {
+        return container.resolve({{ prefix }}{{ module_info.name }}ViewController.self, argument: {{ custom_parameters.plain | downcase }}).unwrap()
     }
     
     // MARK: - Assembly
     
     func assemble(inContainer container: Container) {
 
-        container.register({{ prefix }}{{ module_info.name }}ViewController.self) { resolver in
+        container.register({{ prefix }}{{ module_info.name }}ViewController.self) { (resolver in
             let controller = {{ prefix }}{{ module_info.name }}ViewController()
-            controller.output = resolver.resolve({{ prefix }}{{ module_info.name }}ViewOutput.self, argument: controller as {{ prefix }}{{ module_info.name }}ViewInput)
+            controller.output = resolver.resolve({{ prefix }}{{ module_info.name }}ViewOutput.self, arguments: controller as {{ prefix }}{{ module_info.name }}ViewInput, {{ custom_parameters.plain | downcase }})
             controller.contentManager = resolver.resolve({{ prefix }}{{ module_info.name }}ContentManager.self)
             return controller
         }
         
-        container.register({{ prefix }}{{ module_info.name }}RouterInput.self) { (resolver, transitionHandler: TransitionHandler) in
-            let router = {{ prefix }}{{ module_info.name }}Router(transitionHandler: transitionHandler)    
+        container.register({{ prefix }}{{ module_info.name }}RouterInput.self) { (resolver, transitionHandler: TransitionHandler, {{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain }}PlainObject) in
+            let router = {{ prefix }}{{ module_info.name }}Router(
+                transitionHandler: transitionHandler,
+                {{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain | downcase }}
+            )    
             return router
         }
         
