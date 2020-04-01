@@ -19,6 +19,7 @@ code_files:
 - {name: View/ViewOutput.swift, path: Code/View/ViewOutput.swift.liquid}
 - {name: View/View.swift, path: Code/View/View.swift.liquid}
 - {name: View/ViewAppearance.swift, path: Code/View/ViewAppearance.swift.liquid}
+- {name: View/ViewModel.swift, path: Code/View/ViewModel.swift.liquid}
 
 # Presenter
 - {name: Presenter/ModuleInput.swift, path: Code/Presenter/ModuleInput.swift.liquid}
