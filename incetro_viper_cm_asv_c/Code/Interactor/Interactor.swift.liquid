@@ -10,6 +10,18 @@ final class {{ prefix }}{{ module_info.name }}Interactor {
     
     /// Presenter instance
     weak var output: {{ prefix }}{{ module_info.name }}InteractorOutput?
+
+	/// {{ custom_parameters.service }}Service instance
+    private let {{ custom_parameters.service | downcase }}Service: {{ custom_parameters.service }}Service
+
+    // MARK: - Initializers
+
+    /// Default initializer
+    /// - Parameters:
+    ///   - {{ custom_parameters.service | downcase }}Service: {{ custom_parameters.service }}Service instance
+    init({{ custom_parameters.service | downcase }}Service: {{ custom_parameters.service }}Service) {
+        self.{{ custom_parameters.service | downcase }}Service = {{ custom_parameters.service | downcase }}Service
+    }
 }
 
 // MARK: - {{ prefix }}{{ module_info.name }}InteractorInput

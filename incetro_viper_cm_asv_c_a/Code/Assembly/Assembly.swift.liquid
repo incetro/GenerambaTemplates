@@ -13,8 +13,8 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
 
     // MARK: - Useful
 
-    func obtainViewController() -> {{ prefix }}{{ module_info.name }}ViewController {
-        return container.resolve({{ prefix }}{{ module_info.name }}ViewController.self).unwrap()
+    func obtainViewController(with{{ custom_parameters.plain }} {{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain }}PlainObject) -> {{ prefix }}{{ module_info.name }}ViewController {
+        return container.resolve({{ prefix }}{{ module_info.name }}ViewController.self, argument: {{ custom_parameters.plain | downcase }}).unwrap()
     }
     
     // MARK: - Assembly
@@ -23,7 +23,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
 
         container.register({{ prefix }}{{ module_info.name }}ViewController.self) { (resolver, {{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain }}PlainObject) in
             let controller = {{ prefix }}{{ module_info.name }}ViewController()
-            controller.output = resolver.resolve({{ prefix }}{{ module_info.name }}ViewOutput.self, argument: controller as {{ prefix }}{{ module_info.name }}ViewInput)
+            controller.output = resolver.resolve({{ prefix }}{{ module_info.name }}ViewOutput.self, arguments: controller as {{ prefix }}{{ module_info.name }}ViewInput, {{ custom_parameters.plain | downcase }})
             controller.contentManager = resolver.resolve({{ prefix }}{{ module_info.name }}ContentManager.self)
             return controller
         }
@@ -36,9 +36,9 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
             return router
         }
         
-        container.register({{ prefix }}{{ module_info.name }}ViewOutput.self) { (resolver, view: {{ prefix }}{{ module_info.name }}ViewInput) in
+        container.register({{ prefix }}{{ module_info.name }}ViewOutput.self) { (resolver, view: {{ prefix }}{{ module_info.name }}ViewInput, {{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain }}PlainObject) in
             let viewModelDesigner = resolver.resolve({{ prefix }}{{ module_info.name }}ViewModelDesigner.self).unwrap()
-            let presenter = {{ prefix }}{{ module_info.name }}Presenter(viewModelDesigner: viewModelDesigner)
+            let presenter = {{ prefix }}{{ module_info.name }}Presenter({{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain | downcase }}, viewModelDesigner: viewModelDesigner)
             presenter.view = view
             return presenter
         }.initCompleted { (resolver, viewOutput) in
@@ -51,8 +51,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
         }
         
         container.register({{ prefix }}{{ module_info.name }}InteractorInput.self) { (resolver, interactorOutput: {{ prefix }}{{ module_info.name }}InteractorOutput) in
-            let {{ custom_parameters.service | downcase }}Service = resolver.resolve({{ custom_parameters.service }}Service.self).unwrap()
-            let interactor = {{ prefix }}{{ module_info.name }}Interactor({{ custom_parameters.service | downcase }}Service: {{ custom_parameters.service | downcase }}Service)
+            let interactor = {{ prefix }}{{ module_info.name }}Interactor()
             interactor.output = interactorOutput
             return interactor
         }

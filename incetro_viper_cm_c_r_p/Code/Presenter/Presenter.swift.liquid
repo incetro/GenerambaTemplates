@@ -30,7 +30,7 @@ final class {{ prefix }}{{ module_info.name }}Presenter {
 
     /// Default initializer
     ///
-    /// - Parameter {{ custom_parameters.cell | downcase }}CellViewModelDesigner: {{ custom_parameters.cell }}CellViewModelProtocol factory
+    /// - Parameter viewModelDesigner: {{ custom_parameters.cell }}CellViewModelProtocol factory
     init(viewModelDesigner: {{ custom_parameters.cell }}CellViewModelDesigner) {
         self.viewModelDesigner = viewModelDesigner
     }
