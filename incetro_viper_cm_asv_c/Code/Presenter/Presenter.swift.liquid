@@ -24,7 +24,7 @@ final class {{ prefix }}{{ module_info.name }}Presenter {
     private let viewModelDesigner: {{ prefix }}{{ module_info.name }}ViewModelDesigner
 
     /// Current {{ custom_parameters.plain | downcase }} instance
-    private let {{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain }}PlainObject = {
+    private lazy var {{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain }}PlainObject = {
         interactor.unwrap().obtain{{ custom_parameters.plain }}()
     }()
 

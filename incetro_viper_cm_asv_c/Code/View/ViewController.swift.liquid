@@ -12,6 +12,7 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     /// Current content AloeStackView
     private let stackView = AloeStackView().then {
         $0.separatorColor = .clear
+        $0.backgroundColor = .clear
     }
 
     /// Presenter instance

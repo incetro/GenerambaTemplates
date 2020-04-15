@@ -30,8 +30,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
         
         container.register({{ prefix }}{{ module_info.name }}RouterInput.self) { (resolver, transitionHandler: TransitionHandler) in
             let router = {{ prefix }}{{ module_info.name }}Router(
-                transitionHandler: transitionHandler,
-                {{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain | downcase }}
+                transitionHandler: transitionHandler
             )    
             return router
         }

@@ -21,7 +21,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
     
     func assemble(inContainer container: Container) {
 
-        container.register({{ prefix }}{{ module_info.name }}ViewController.self) { (resolver, {{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain }}PlainObject) in
+        container.register({{ prefix }}{{ module_info.name }}ViewController.self) { (resolver) in
             let controller = {{ prefix }}{{ module_info.name }}ViewController()
             controller.output = resolver.resolve({{ prefix }}{{ module_info.name }}ViewOutput.self, argument: controller as {{ prefix }}{{ module_info.name }}ViewInput)
             controller.contentManager = resolver.resolve({{ prefix }}{{ module_info.name }}ContentManager.self)
@@ -30,8 +30,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
         
         container.register({{ prefix }}{{ module_info.name }}RouterInput.self) { (resolver, transitionHandler: TransitionHandler) in
             let router = {{ prefix }}{{ module_info.name }}Router(
-                transitionHandler: transitionHandler,
-                {{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain | downcase }}
+                transitionHandler: transitionHandler
             )    
             return router
         }
