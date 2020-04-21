@@ -76,7 +76,7 @@ extension {{ prefix }}{{ module_info.name }}ViewController: {{ prefix }}{{ modul
 
 extension {{ prefix }}{{ module_info.name }}ViewController: ViewOutputProvider {
     var viewOutput: ModuleInput? {
-        return self.output as? ModuleInput
+        output as? ModuleInput
     }
 }
 

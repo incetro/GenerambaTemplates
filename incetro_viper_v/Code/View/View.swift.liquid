@@ -49,7 +49,7 @@ extension {{ prefix }}{{ module_info.name }}View: {{ prefix }}{{ module_info.nam
 extension {{ prefix }}{{ module_info.name }}View: ViewOutputProvider {
     
     var viewOutput: ModuleInput? {
-        return self.output as? ModuleInput
+        output as? ModuleInput
     }
 }
 
