@@ -9,7 +9,6 @@ license: "MIT"
 code_files:
 
 # Module
-
 - {name: Module/Module.swift, path: Code/Module/Module.swift.liquid}
 
 # Assembly
@@ -34,20 +33,3 @@ code_files:
 # Router
 - {name: Router/RouterInput.swift, path: Code/Router/RouterInput.swift.liquid}
 - {name: Router/Router.swift, path: Code/Router/Router.swift.liquid}
-
-test_files:
-
-# Assembly tests
-- {name: Assembly/AssemblyTests.swift, path: Tests/Assembly/AssemblyTests.swift.liquid}
-
-# View tests
-- {name: View/ViewTests.swift, path: Tests/View/ViewTests.swift.liquid}
-
-# Interactor tests
-- {name: Interactor/InteractorTests.swift, path: Tests/Interactor/InteractorTests.swift.liquid}
-
-# Presenter tests
-- {name: Presenter/PresenterTests.swift, path: Tests/Presenter/PresenterTests.swift.liquid}
-
-# Router tests
-- {name: Router/RouterTests.swift, path: Tests/Router/RouterTests.swift.liquid}
