@@ -53,6 +53,24 @@ extension {{ prefix }}{{ module_info.name }}View: ViewOutputProvider {
     }
 }
 
+// MARK: - Localizable
+
+extension {{ prefix }}{{ module_info.name }}View: Localizable {
+
+    func localize(language: Language) {
+    }
+}
+
+// MARK: - Designable
+
+extension {{ prefix }}{{ module_info.name }}View: Designable {
+
+    func design(appearance: Appearance) {
+        let design = appearance.{{ prefix }}{{ module_info.name }}ViewAppearance
+        view.backgroundColor = design.backgroundColor
+    }
+}
+
 // MARK: - {{ prefix }}{{ module_info.name }}ViewConstants
 
 private struct {{ prefix }}{{ module_info.name }}ViewConstants {

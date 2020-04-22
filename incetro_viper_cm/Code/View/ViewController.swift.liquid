@@ -88,7 +88,7 @@ extension {{ prefix }}{{ module_info.name }}ViewController: Localizable {
 extension {{ prefix }}{{ module_info.name }}ViewController: Designable {
 
     func design(appearance: Appearance) {
-        let design = appearance.<#name#>
+        let design = appearance.{{ prefix }}{{ module_info.name }}ViewControllerAppearance
         view.backgroundColor = design.backgroundColor
     }
 }

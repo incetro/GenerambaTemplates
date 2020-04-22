@@ -55,7 +55,7 @@ extension {{ prefix }}{{ module_info.name }}ViewController: {{ prefix }}{{ modul
 
 extension {{ prefix }}{{ module_info.name }}ViewController: ViewOutputProvider {
     var viewOutput: ModuleInput? {
-        return self.output as? ModuleInput
+        output as? ModuleInput
     }
 }
 
@@ -72,7 +72,7 @@ extension {{ prefix }}{{ module_info.name }}ViewController: Localizable {
 extension {{ prefix }}{{ module_info.name }}ViewController: Designable {
 
     func design(appearance: Appearance) {
-        let design = appearance.<#name#>
+        let design = appearance.{{ prefix }}{{ module_info.name }}ViewControllerAppearance
         view.backgroundColor = design.backgroundColor
     }
 }
