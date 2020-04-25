@@ -1,4 +1,6 @@
 {% include 'header' %}
+// swiftlint:disable unused_closure_parameter
+// swiftlint:disable closure_parameter_position
 
 import UIKit
 import Swinject
@@ -8,7 +10,7 @@ import Swinject
 final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembly {
 
     // MARK: - Initializers
-    
+
     required init() {
 
     }
@@ -18,9 +20,9 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
     func obtainViewController() -> {{ prefix }}{{ module_info.name }}ViewController {
         return container.resolve({{ prefix }}{{ module_info.name }}ViewController.self).unwrap()
     }
-    
+
     // MARK: - Assembly
-    
+
     func assemble(inContainer container: Container) {
 
         container.register({{ prefix }}{{ module_info.name }}ViewController.self) { resolver in
@@ -28,12 +30,12 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
             controller.output = resolver.resolve({{ prefix }}{{ module_info.name }}ViewOutput.self, argument: controller as {{ prefix }}{{ module_info.name }}ViewInput)
             return controller
         }
-        
+
         container.register({{ prefix }}{{ module_info.name }}RouterInput.self) { (resolver, transitionHandler: TransitionHandler) in
-            let router = {{ prefix }}{{ module_info.name }}Router(transitionHandler: transitionHandler)    
+            let router = {{ prefix }}{{ module_info.name }}Router(transitionHandler: transitionHandler)
             return router
         }
-        
+
         container.register({{ prefix }}{{ module_info.name }}ViewOutput.self) { (resolver, view: {{ prefix }}{{ module_info.name }}ViewInput) in
             let presenter = {{ prefix }}{{ module_info.name }}Presenter()
             presenter.view = view
@@ -46,7 +48,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
                 }
             }
         }
-        
+
         container.register({{ prefix }}{{ module_info.name }}InteractorInput.self) { (resolver, interactorOutput: {{ prefix }}{{ module_info.name }}InteractorOutput) in
             let interactor = {{ prefix }}{{ module_info.name }}Interactor()
             interactor.output = interactorOutput
