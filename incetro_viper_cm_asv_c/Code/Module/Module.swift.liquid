@@ -15,6 +15,6 @@ final class {{ prefix }}{{ module_info.name }}Module: AdvancedModule {
     // MARK: - Module
 
     static func instantiate(withData data: Data) -> {{ prefix }}{{ module_info.name }}ViewController {
-		return {{ prefix }}{{ module_info.name }}ModuleAssembly(with{{ custom_parameters.plain }}: data).obtainViewController()
+		return {{ prefix }}{{ module_info.name }}ModuleAssembly().obtainViewController(with{{ custom_parameters.plain }}: data)
     }
 }
