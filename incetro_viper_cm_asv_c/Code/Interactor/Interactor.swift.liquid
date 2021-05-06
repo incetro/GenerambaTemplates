@@ -3,8 +3,7 @@
 {% assign service_tail_count = custom_parameters.service | size | minus: 1 %}
 {% assign service_first_letter = custom_parameters.service | slice: 0 | downcase %}
 {% assign service_without_first_letter = custom_parameters.service | slice: 1, service_tail_count %}
-{% assign service_uncap_array = service_first_letter | concat: service_without_first_letter %}
-{% assign service_uncap = service_uncap_array | split: "," | join: "" %}
+{% assign service_uncap = service_first_letter | append: service_without_first_letter %}
 
 import Foundation
 
