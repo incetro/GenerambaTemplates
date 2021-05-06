@@ -15,7 +15,7 @@ struct {{ prefix }}{{ module_info.name }}ViewModel: {{ prefix }}{{ module_info.n
     /// Default initializer
     /// - Parameters:
     ///   - {{ custom_parameters.plain_uncap }}: current {{ custom_parameters.plain_uncap }} model
-    init({{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain }}PlainObject) {
+    init({{ custom_parameters.plain_uncap }}: {{ custom_parameters.plain }}PlainObject) {
         self.{{ custom_parameters.plain_uncap }} = {{ custom_parameters.plain_uncap }}
     }
 }

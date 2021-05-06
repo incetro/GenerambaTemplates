@@ -5,14 +5,10 @@ import UIKit
 // MARK: - {{ prefix }}{{ module_info.name }}ViewController
 
 final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
-    
-    // MARK: - Aliases
-
-    private typealias LayoutConstants = {{ prefix }}{{ module_info.name }}ViewControllerConstants
 
     // MARK: - Properties
     
-    /// Table with NAME
+    /// Table with <#entities#>
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
@@ -22,7 +18,7 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     /// Presenter instance
     var output: {{ prefix }}{{ module_info.name }}ViewOutput?
 
-    /// NAME content manager
+    /// <#entities#> content manager
     var contentManager: {{ prefix }}{{ module_info.name }}ContentManager?
     
     // MARK: - ViewController
@@ -39,7 +35,7 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     /// Cards table view setup
     private func setupTableView() {
         view.addSubview(tableView.prepareForAutolayout())
-        tableView.pinToSuperview(withOffset: 0)
+        tableView.pinToSuperview()
     }
 }
 
@@ -88,12 +84,15 @@ extension {{ prefix }}{{ module_info.name }}ViewController: Localizable {
 extension {{ prefix }}{{ module_info.name }}ViewController: Designable {
 
     func design(appearance: Appearance) {
-        let design = appearance.{{ prefix }}{{ module_info.name }}ViewControllerAppearance
+        let design = appearance.{{ prefix }}{{ module_info.name | downcase }}ViewControllerAppearance
         view.backgroundColor = design.backgroundColor
     }
 }
 
-// MARK: - {{ prefix }}{{ module_info.name }}ViewControllerConstants
+// MARK: - Constants
 
-private struct {{ prefix }}{{ module_info.name }}ViewControllerConstants {
+extension {{ prefix }}{{ module_info.name }}ViewController {
+
+    enum Constants {
+    }
 }

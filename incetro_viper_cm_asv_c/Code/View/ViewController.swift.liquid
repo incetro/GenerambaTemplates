@@ -35,7 +35,7 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     /// Current stack view setup
     private func setupStackView() {
         view.addSubview(stackView.prepareForAutolayout())
-        stackView.pinToSuperview(withOffset: 0)
+        stackView.pinToSuperview()
         contentManager?.configure(stackView: stackView)
     }
 }
@@ -89,12 +89,15 @@ extension {{ prefix }}{{ module_info.name }}ViewController: Localizable {
 extension {{ prefix }}{{ module_info.name }}ViewController: Designable {
 
     func design(appearance: Appearance) {
-        let design = appearance.<#name#>
+        let design = appearance.{{ prefix }}{{ module_info.name | downcase }}ViewControllerAppearance
         view.backgroundColor = design.backgroundColor
     }
 }
 
-// MARK: - LayoutConstants
+// MARK: - Constants
 
-private struct LayoutConstants {
+extension {{ prefix }}{{ module_info.name }}ViewController {
+
+    enum Constants {
+    }
 }

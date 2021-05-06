@@ -6,10 +6,6 @@ import UIKit
 
 final class {{ prefix }}{{ module_info.name }}View: UIView {
 
-    // MARK: - Aliases
-
-    private typealias LayoutConstants = {{ prefix }}{{ module_info.name }}ViewConstants
-
     // MARK: - Properties
     
     /// Presenter instance
@@ -71,7 +67,10 @@ extension {{ prefix }}{{ module_info.name }}View: Designable {
     }
 }
 
-// MARK: - {{ prefix }}{{ module_info.name }}ViewConstants
+// MARK: - Constants
 
-private struct {{ prefix }}{{ module_info.name }}ViewConstants {
+extension {{ prefix }}{{ module_info.name }}ViewController {
+
+    enum Constants {
+    }
 }

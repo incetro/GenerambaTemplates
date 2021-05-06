@@ -14,11 +14,11 @@ final class {{ prefix }}{{ module_info.name }}ContentManagerImplementation: NSOb
     // MARK: - ContentManager
 
     func dataSource(for tableView: UITableView) -> UITableViewDataSource {
-        return self
+        self
     }
     
     func delegate(for tableView: UITableView) -> UITableViewDelegate {
-        return self
+        self
     }
 }
 

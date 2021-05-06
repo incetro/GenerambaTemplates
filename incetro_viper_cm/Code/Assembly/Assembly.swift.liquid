@@ -5,6 +5,8 @@
 import UIKit
 import Swinject
 
+// MARK: - {{ prefix }}{{ module_info.name }}ModuleAssembly
+
 final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembly {
 
     // MARK: - Initializers
@@ -16,7 +18,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
     // MARK: - Useful
 
     func obtainViewController() -> {{ prefix }}{{ module_info.name }}ViewController {
-        return container.resolve({{ prefix }}{{ module_info.name }}ViewController.self).unwrap()
+        container.resolve({{ prefix }}{{ module_info.name }}ViewController.self).unwrap()
     }
     
     // MARK: - Assembly

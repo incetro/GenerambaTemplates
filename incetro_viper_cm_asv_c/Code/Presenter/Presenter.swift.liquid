@@ -29,8 +29,9 @@ final class {{ prefix }}{{ module_info.name }}Presenter {
     // MARK: - Initializers
 
     /// Default initializer
-    ///
-    /// - Parameter viewModelDesigner: {{ prefix }}{{ module_info.name }}ViewModelProtocol factory
+    /// - Parameters:
+    ///   - viewModelDesigner: {{ prefix }}{{ module_info.name }}ViewModelProtocol factory
+    ///   - {{ custom_parameters.plain_uncap }}: current {{ custom_parameters.plain_uncap }} instance
     init(
         viewModelDesigner: {{ prefix }}{{ module_info.name }}ViewModelDesigner,
         {{ custom_parameters.plain_uncap }}: {{ custom_parameters.plain }}PlainObject

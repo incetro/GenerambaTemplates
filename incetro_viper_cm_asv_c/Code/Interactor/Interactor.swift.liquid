@@ -1,5 +1,11 @@
 {% include 'header' %}
 
+{% assign service_tail_count = custom_parameters.service | size | minus: 1 %}
+{% assign service_first_letter = custom_parameters.service | slice: 0 | downcase %}
+{% assign service_without_first_letter = custom_parameters.service | slice: 1, service_tail_count %}
+{% assign service_uncap_array = service_first_letter | concat: service_without_first_letter %}
+{% assign service_uncap = service_uncap_array | split: "," | join: "" %}
+
 import Foundation
 
 // MARK: - {{ prefix }}{{ module_info.name }}Interactor
@@ -12,15 +18,15 @@ final class {{ prefix }}{{ module_info.name }}Interactor {
     weak var output: {{ prefix }}{{ module_info.name }}InteractorOutput?
 
 	/// {{ custom_parameters.service }}Service instance
-    private let {{ custom_parameters.service | downcase }}Service: {{ custom_parameters.service }}Service
+    private let {{ service_uncap }}Service: {{ custom_parameters.service }}Service
 
     // MARK: - Initializers
 
     /// Default initializer
     /// - Parameters:
-    ///   - {{ custom_parameters.service | downcase }}Service: {{ custom_parameters.service }}Service instance
-    init({{ custom_parameters.service | downcase }}Service: {{ custom_parameters.service }}Service) {
-        self.{{ custom_parameters.service | downcase }}Service = {{ custom_parameters.service | downcase }}Service
+    ///   - {{ service_uncap }}Service: {{ custom_parameters.service }}Service instance
+    init({{ service_uncap }}Service: {{ custom_parameters.service }}Service) {
+        self.{{ service_uncap }}Service = {{ service_uncap }}Service
     }
 }
 

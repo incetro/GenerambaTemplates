@@ -14,7 +14,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
     }
 
     func obtainView(withTransitionHandler transitionHandler: TransitionHandler) -> {{ prefix }}{{ module_info.name }}View {
-        return container.resolve({{ prefix }}{{ module_info.name }}View.self, argument: transitionHandler).unwrap()
+        container.resolve({{ prefix }}{{ module_info.name }}View.self, argument: transitionHandler).unwrap()
     }
 
     // MARK: - Assembly

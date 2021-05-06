@@ -6,10 +6,6 @@ import UIKit
 
 final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     
-    // MARK: - Aliases
-
-    private typealias LayoutConstants = {{ prefix }}{{ module_info.name }}ViewControllerConstants
-    
     // MARK: - Properties
     
     /// Table with {{ custom_parameters.cell }} cells
@@ -98,7 +94,10 @@ extension {{ prefix }}{{ module_info.name }}ViewController: Designable {
     }
 }
 
-// MARK: - {{ prefix }}{{ module_info.name }}ViewControllerConstants
+// MARK: - Constants
 
-private struct {{ prefix }}{{ module_info.name }}ViewControllerConstants {
+extension {{ prefix }}{{ module_info.name }}ViewController {
+
+    enum Constants {
+    }
 }

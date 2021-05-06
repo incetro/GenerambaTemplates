@@ -14,7 +14,7 @@ code_files:
 # Assembly
 - {name: Assembly/Assembly.swift, path: Code/Assembly/Assembly.swift.liquid}
 
-# View layer
+# View
 - {name: View/ViewInput.swift, path: Code/View/ViewInput.swift.liquid}
 - {name: View/ViewOutput.swift, path: Code/View/ViewOutput.swift.liquid}
 - {name: View/ViewController.swift, path: Code/View/ViewController.swift.liquid}
