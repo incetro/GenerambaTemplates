@@ -7,8 +7,8 @@ import Foundation
 protocol {{ custom_parameters.cell }}CellViewModelDesigner {
     
     /// Converts {{ custom_parameters.plain }}PlainObject to {{ custom_parameters.cell }}CellViewModelProtocol
-    /// - Parameter {{ custom_parameters.plain | downcase }}: some {{ custom_parameters.plain | downcase }}
-    func viewModel(from {{ custom_parameters.plain | downcase }}: {{ custom_parameters.plain }}PlainObject) -> {{ custom_parameters.cell }}CellViewModelProtocol
+    /// - Parameter {{ plain_uncap }}: some {{ plain_uncap }}
+    func viewModel(from {{ plain_uncap }}: {{ custom_parameters.plain }}PlainObject) -> {{ custom_parameters.cell }}CellViewModelProtocol
 }
 
 extension {{ custom_parameters.cell }}CellViewModelDesigner {
@@ -16,6 +16,6 @@ extension {{ custom_parameters.cell }}CellViewModelDesigner {
     /// Converts [{{ custom_parameters.plain }}PlainObject] to [{{ custom_parameters.cell }}CellViewModelProtocol]
     /// - Parameter {{ entities_uncap }}: some {{ entities_uncap }}
     func viewModels(from {{ entities_uncap }}: [{{ custom_parameters.plain }}PlainObject]) -> [{{ custom_parameters.cell }}CellViewModelProtocol] {
-        return {{ entities_uncap }}.map(viewModel)
+        {{ entities_uncap }}.map(viewModel)
     }
 }

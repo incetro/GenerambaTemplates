@@ -26,7 +26,7 @@ extension {{ custom_parameters.cell }}CellPresenterFactory {
     ///   - tableView: tableView for registering cells
     /// - Returns: {{ custom_parameters.cell }}CellPresenter array
     func controllers(with viewModels: [{{ custom_parameters.cell }}CellViewModelProtocol], tableView: UITableView) -> [{{ custom_parameters.cell }}CellPresenter] {
-        return viewModels.map {
+        viewModels.map {
             controller(with: $0, tableView: tableView)
         }
     }
