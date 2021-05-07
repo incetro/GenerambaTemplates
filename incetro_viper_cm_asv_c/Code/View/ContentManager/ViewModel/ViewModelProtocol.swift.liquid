@@ -1,14 +1,5 @@
 {% include 'header' %}
 
-{% assign replacement = custom_parameters.plain %}
-{% assign plain_tail_count = replacement | size | minus: 1 %}
-{% assign plain_first_letter = replacement | slice: 0 | downcase %}
-{% assign plain_without_first_letter = replacement | slice: 1, plain_tail_count %}
-{% assign plain_uncap = plain_first_letter | append: plain_without_first_letter %}
-{% comment %}
-{% It's necessary to use `swiftlint autocorrect` after generating this module because there will be empty lines %}
-{% endcomment %}
-
 import Foundation
 
 // MARK: - {{ prefix }}{{ module_info.name }}ViewModelProtocol
