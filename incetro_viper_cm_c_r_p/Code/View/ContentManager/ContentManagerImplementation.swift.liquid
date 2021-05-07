@@ -21,7 +21,7 @@ final class {{ prefix }}{{ module_info.name }}ContentManagerImplementation: NSOb
 
     /// Default initializer
     ///
-    /// - Parameter controllersFactory: {{ custom_parameters.cell | downcase }} controllers factory
+    /// - Parameter controllersFactory: {{ cell_uncap }} controllers factory
     init(controllersFactory: {{ custom_parameters.cell }}CellPresenterFactory) {
         self.controllersFactory = controllersFactory
         super.init()

@@ -15,7 +15,7 @@ final class {{ prefix }}{{ module_info.name }}Presenter {
     weak var view: {{ prefix }}{{ module_info.name }}ViewInput?
 
     /// {{ prefix }}{{ module_info.name }}CellViewModelProtocol factory
-    private let {{ custom_parameters.cell | downcase }}CellViewModelDesigner: {{ custom_parameters.cell }}CellViewModelDesigner
+    private let {{ cell_uncap }}CellViewModelDesigner: {{ custom_parameters.cell }}CellViewModelDesigner
     
     /// Interactor instance
     var interactor: {{ prefix }}{{ module_info.name }}InteractorInput?
@@ -27,9 +27,9 @@ final class {{ prefix }}{{ module_info.name }}Presenter {
 
     /// Default initializer
     ///
-    /// - Parameter {{ custom_parameters.cell | downcase }}CellViewModelDesigner: {{ custom_parameters.cell }}CellViewModelProtocol factory
-    init({{ custom_parameters.cell | downcase }}CellViewModelDesigner: {{ custom_parameters.cell }}CellViewModelDesigner) {
-        self.{{ custom_parameters.cell | downcase }}CellViewModelDesigner = {{ custom_parameters.cell | downcase }}CellViewModelDesigner
+    /// - Parameter {{ cell_uncap }}CellViewModelDesigner: {{ custom_parameters.cell }}CellViewModelProtocol factory
+    init({{ cell_uncap }}CellViewModelDesigner: {{ custom_parameters.cell }}CellViewModelDesigner) {
+        self.{{ cell_uncap }}CellViewModelDesigner = {{ cell_uncap }}CellViewModelDesigner
     }
 }
 

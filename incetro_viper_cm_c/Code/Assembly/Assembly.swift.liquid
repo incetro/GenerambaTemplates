@@ -39,8 +39,8 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
         }
         
         container.register({{ prefix }}{{ module_info.name }}ViewOutput.self) { (resolver, view: {{ prefix }}{{ module_info.name }}ViewInput) in
-            let {{ custom_parameters.cell | downcase }}CellViewModelDesigner = resolver.resolve({{ custom_parameters.cell }}CellViewModelDesigner.self).unwrap()
-            let presenter = {{ prefix }}{{ module_info.name }}Presenter({{ custom_parameters.cell | downcase }}CellViewModelDesigner: {{ custom_parameters.cell | downcase }}CellViewModelDesigner)
+            let {{ cell_uncap }}CellViewModelDesigner = resolver.resolve({{ custom_parameters.cell }}CellViewModelDesigner.self).unwrap()
+            let presenter = {{ prefix }}{{ module_info.name }}Presenter({{ cell_uncap }}CellViewModelDesigner: {{ cell_uncap }}CellViewModelDesigner)
             presenter.view = view
             return presenter
         }.initCompleted { (resolver, viewOutput) in

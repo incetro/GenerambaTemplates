@@ -54,7 +54,7 @@ extension {{ custom_parameters.cell }}Cell {
 extension {{ custom_parameters.cell }}Cell: Designable {
 
     func design(appearance: Appearance) {
-        let design = appearance.{{ custom_parameters.cell | downcase }}CellAppearance
+        let design = appearance.{{ cell_uncap }}CellAppearance
         backgroundColor = design.backgroundColor
     }
 }
