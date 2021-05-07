@@ -36,7 +36,7 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     /// Cards table view setup
     private func setupTableView() {
         view.addSubview(tableView.prepareForAutolayout())
-        tableView.pinToSuperview(withOffset: 0)
+        tableView.pinToSuperview()
         contentManager?.configure(withTableView: tableView)
     }
 }
@@ -90,7 +90,7 @@ extension {{ prefix }}{{ module_info.name }}ViewController: Localizable {
 extension {{ prefix }}{{ module_info.name }}ViewController: Designable {
 
     func design(appearance: Appearance) {
-        let design = appearance.{{ prefix }}{{ module_info.name }}ViewControllerAppearance
+        let design = appearance.{{ module_name_uncap }}ViewControllerAppearance
         view.backgroundColor = design.backgroundColor
     }
 }
