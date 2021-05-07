@@ -2,11 +2,18 @@
 // swiftlint:disable unused_closure_parameter
 // swiftlint:disable closure_parameter_position
 
-{% assign replacement = custom_parameters.service %}
-{% assign service_tail_count = replacement | size | minus: 1 %}
-{% assign service_first_letter = replacement | slice: 0 | downcase %}
-{% assign service_without_first_letter = replacement | slice: 1, service_tail_count %}
+{% assign service_tail_count = custom_parameters.service | size | minus: 1 %}
+{% assign service_first_letter = custom_parameters.service | slice: 0 | downcase %}
+{% assign service_without_first_letter = custom_parameters.service | slice: 1, service_tail_count %}
 {% assign service_uncap = service_first_letter | append: service_without_first_letter %}
+{% comment %}
+{% It's necessary to use `swiftlint autocorrect` after generating this module because there will be empty lines %}
+{% endcomment %}
+
+{% assign plain_tail_count = custom_parameters.plain | size | minus: 1 %}
+{% assign plain_first_letter = custom_parameters.plain | slice: 0 | downcase %}
+{% assign plain_without_first_letter = custom_parameters.plain | slice: 1, plain_tail_count %}
+{% assign plain_uncap = plain_first_letter | append: plain_without_first_letter %}
 {% comment %}
 {% It's necessary to use `swiftlint autocorrect` after generating this module because there will be empty lines %}
 {% endcomment %}
@@ -35,9 +42,9 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
 
     func assemble(inContainer container: Container) {
 
-        container.register({{ prefix }}{{ module_info.name }}ViewController.self) { (resolver, {{ custom_parameters.plain_uncap }}: {{ custom_parameters.plain }}PlainObject) in
+        container.register({{ prefix }}{{ module_info.name }}ViewController.self) { (resolver, {{ plain_uncap }}: {{ custom_parameters.plain }}PlainObject) in
             let controller = {{ prefix }}{{ module_info.name }}ViewController()
-            controller.output = resolver.resolve({{ prefix }}{{ module_info.name }}ViewOutput.self, arguments: controller as {{ prefix }}{{ module_info.name }}ViewInput, {{ custom_parameters.plain_uncap }})
+            controller.output = resolver.resolve({{ prefix }}{{ module_info.name }}ViewOutput.self, arguments: controller as {{ prefix }}{{ module_info.name }}ViewInput, {{ plain_uncap }})
             controller.contentManager = resolver.resolve({{ prefix }}{{ module_info.name }}ContentManager.self)
             return controller
         }
@@ -49,11 +56,11 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
             return router
         }
 
-        container.register({{ prefix }}{{ module_info.name }}ViewOutput.self) { (resolver, view: {{ prefix }}{{ module_info.name }}ViewInput, {{ custom_parameters.plain_uncap }}: {{ custom_parameters.plain }}PlainObject) in
+        container.register({{ prefix }}{{ module_info.name }}ViewOutput.self) { (resolver, view: {{ prefix }}{{ module_info.name }}ViewInput, {{ plain_uncap }}: {{ custom_parameters.plain }}PlainObject) in
             let viewModelDesigner = resolver.resolve({{ prefix }}{{ module_info.name }}ViewModelDesigner.self).unwrap()
             let presenter = {{ prefix }}{{ module_info.name }}Presenter(
                 viewModelDesigner: viewModelDesigner,
-                {{ custom_parameters.plain_uncap }}: {{ custom_parameters.plain_uncap }}
+                {{ plain_uncap }}: {{ plain_uncap }}
             )
             presenter.view = view
             return presenter
