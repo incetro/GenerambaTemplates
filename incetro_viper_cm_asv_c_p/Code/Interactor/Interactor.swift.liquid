@@ -11,16 +11,16 @@ final class {{ prefix }}{{ module_info.name }}Interactor {
     /// Presenter instance
     weak var output: {{ prefix }}{{ module_info.name }}InteractorOutput?
 
-    /// {{ prefix }}{{ custom_parameters.service_name }}Service instance
-    private let {{ prefix }}{{ custom_parameters.service_name }}Service: {{ prefix }}{{ module_info.service }}Service
+    /// {{ prefix }}{{ custom_parameters.service }}Service instance
+    private let {{ prefix }}{{ service_uncap }}Service: {{ prefix }}{{ custom_parameters.service }}Service
 
     // MARK: - Initializers
 
     /// Default initializer
     /// - Parameters:
-    ///   - {{ custom_parameters.service | downcase }}Service: {{ custom_parameters.service }}Service instance
-    init({{ prefix }}{{ custom_parameters.service_name }}Service: {{ prefix }}{{ custom_parameters.service }}Service) {
-        self.{{ prefix }}{{ custom_parameters.service_name | downcase }}Service = {{ prefix }}{{ custom_parameters.service_name | downcase }}Service
+    ///   - {{ service_uncap }}Service: {{ custom_parameters.service }}Service instance
+    init({{ prefix }}{{ service_uncap }}Service: {{ prefix }}{{ custom_parameters.service }}Service) {
+        self.{{ prefix }}{{ service_uncap }}Service = {{ prefix }}{{ service_uncap }}Service
     }
 }
 
@@ -30,7 +30,7 @@ extension {{ prefix }}{{ module_info.name }}Interactor: {{ prefix }}{{ module_in
     
     func obtain{{ custom_parameters.plain }}() -> {{ custom_parameters.plain }}PlainObject {
     	do {
-            return try {{ prefix }}{{ module_info.service_name }}Service.obtain().sync().get()
+            return try {{ prefix }}{{ service_uncap }}Service.obtain().sync().get()
         } catch {
             fatalError(error.localizedDescription)
         }

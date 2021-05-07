@@ -55,8 +55,8 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
         }
         
         container.register({{ prefix }}{{ module_info.name }}InteractorInput.self) { (resolver, interactorOutput: {{ prefix }}{{ module_info.name }}InteractorOutput) in
-            let {{ prefix }}{{ module_info.service_name }}Service = resolver.resolve({{ prefix }}{{ module_info.service }}Service.self).unwrap()
-            let interactor = {{ prefix }}{{ module_info.name }}Interactor({{ prefix }}{{ module_info.service_name }}Service: {{ prefix }}{{ module_info.service_name }}Service)
+            let {{ service_uncap }}Service = resolver.resolve({{ prefix }}{{ module_info.service }}Service.self).unwrap()
+            let interactor = {{ prefix }}{{ module_info.name }}Interactor({{ service_uncap }}Service: {{ service_uncap }}Service)
             interactor.output = interactorOutput
             return interactor
         }
