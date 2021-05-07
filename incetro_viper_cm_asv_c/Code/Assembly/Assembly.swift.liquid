@@ -56,7 +56,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
             }
         }
 
-        {% replacement = custom_parameters.service }
+        {% assign replacement = custom_parameters.service }
         {% assign service_tail_count = replacement | size | minus: 1 %}
         {% assign service_first_letter = replacement | slice: 0 | downcase %}
         {% assign service_without_first_letter = replacement | slice: 1, service_tail_count %}

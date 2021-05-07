@@ -1,6 +1,6 @@
 {% include 'header' %}
 
-{% replacement = custom_parameters.plain }
+{% assign replacement = custom_parameters.plain }
 {% assign plain_tail_count = replacement | size | minus: 1 %}
 {% assign plain_first_letter = replacement | slice: 0 | downcase %}
 {% assign plain_without_first_letter = replacement | slice: 1, plain_tail_count %}
