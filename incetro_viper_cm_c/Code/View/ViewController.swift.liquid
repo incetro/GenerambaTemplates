@@ -44,7 +44,7 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     /// Cards table view setup
     private func setupTableView() {
         view.addSubview(tableView.prepareForAutolayout())
-        tableView.pinToSuperview(withOffset: 0)
+        tableView.pinToSuperview()
         contentManager?.configure(withTableView: tableView)
     }
 }
