@@ -9,11 +9,9 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     // MARK: - Properties
     
     /// Table with <#entities#>
-    private let tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.separatorStyle = .none
-        return tableView
-    }()
+    private let tableView = UITableView().then {
+        $0.separatorStyle = .none
+    }
 
     /// Presenter instance
     var output: {{ prefix }}{{ module_info.name }}ViewOutput?

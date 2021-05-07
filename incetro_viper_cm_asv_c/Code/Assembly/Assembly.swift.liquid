@@ -56,9 +56,18 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
             }
         }
 
+        {% replacement = custom_parameters.service }
+        {% assign service_tail_count = replacement | size | minus: 1 %}
+        {% assign service_first_letter = replacement | slice: 0 | downcase %}
+        {% assign service_without_first_letter = replacement | slice: 1, service_tail_count %}
+        {% assign service_uncap = service_first_letter | append: service_without_first_letter %}
+        {% comment %}
+        {% It's necessary to use `swiftlint autocorrect` after generating this module because there will be empty lines %}
+        {% endcomment %}
+
         container.register({{ prefix }}{{ module_info.name }}InteractorInput.self) { (resolver, interactorOutput: {{ prefix }}{{ module_info.name }}InteractorOutput) in
-            let {{ custom_parameters.service | downcase }}Service = resolver.resolve({{ custom_parameters.service }}Service.self).unwrap()
-            let interactor = {{ prefix }}{{ module_info.name }}Interactor({{ custom_parameters.service | downcase }}Service: {{ custom_parameters.service | downcase }}Service)
+            let {{ service_uncap }}Service = resolver.resolve({{ custom_parameters.service }}Service.self).unwrap()
+            let interactor = {{ prefix }}{{ module_info.name }}Interactor({{ service_uncap }}Service: {{ service_uncap }}Service)
             interactor.output = interactorOutput
             return interactor
         }
