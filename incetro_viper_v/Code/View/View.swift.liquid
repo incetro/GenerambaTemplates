@@ -1,6 +1,7 @@
 {% include 'header' %}
 
 import UIKit
+import TransitionHandler
 
 // MARK: - {{ prefix }}{{ module_info.name }}View
 
@@ -62,14 +63,14 @@ extension {{ prefix }}{{ module_info.name }}View: Localizable {
 extension {{ prefix }}{{ module_info.name }}View: Designable {
 
     func design(appearance: Appearance) {
-        let design = appearance.{{ prefix }}{{ module_info.name }}ViewAppearance
+        let design = appearance.{{ module_name_uncap }}ViewAppearance
         view.backgroundColor = design.backgroundColor
     }
 }
 
 // MARK: - Constants
 
-extension {{ prefix }}{{ module_info.name }}ViewController {
+extension {{ prefix }}{{ module_info.name }}View {
 
     enum Constants {
     }
