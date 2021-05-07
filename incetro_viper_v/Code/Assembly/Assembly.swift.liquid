@@ -15,7 +15,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
     }
 
     func obtainView() -> {{ prefix }}{{ module_info.name }}View {
-        return container.resolve({{ prefix }}{{ module_info.name }}View.self).unwrap()
+        container.resolve({{ prefix }}{{ module_info.name }}View.self).unwrap()
     }
 
     // MARK: - Assembly
