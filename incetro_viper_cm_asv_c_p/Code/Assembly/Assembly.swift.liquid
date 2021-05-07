@@ -28,7 +28,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
 
         container.register({{ prefix }}{{ module_info.name }}ViewController.self) { (resolver) in
             let controller = {{ prefix }}{{ module_info.name }}ViewController()
-            controller.output = resolver.resolve({{ prefix }}{{ module_info.name }}ViewOutput.self, arguments: controller as {{ prefix }}{{ module_info.name }}ViewInput)
+            controller.output = resolver.resolve({{ prefix }}{{ module_info.name }}ViewOutput.self, argument: controller as {{ prefix }}{{ module_info.name }}ViewInput)
             controller.contentManager = resolver.resolve({{ prefix }}{{ module_info.name }}ContentManager.self)
             return controller
         }
@@ -55,7 +55,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
         }
         
         container.register({{ prefix }}{{ module_info.name }}InteractorInput.self) { (resolver, interactorOutput: {{ prefix }}{{ module_info.name }}InteractorOutput) in
-            let {{ service_uncap }}Service = resolver.resolve({{ prefix }}{{ module_info.service }}Service.self).unwrap()
+            let {{ service_uncap }}Service = resolver.resolve({{ prefix }}{{ custom_parameters.service }}Service.self).unwrap()
             let interactor = {{ prefix }}{{ module_info.name }}Interactor({{ service_uncap }}Service: {{ service_uncap }}Service)
             interactor.output = interactorOutput
             return interactor

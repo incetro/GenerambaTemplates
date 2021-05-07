@@ -44,7 +44,7 @@ final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
     /// Current stack view setup
     private func setupStackView() {
         view.addSubview(stackView.prepareForAutolayout())
-        stackView.pinToSuperview(withOffset: 0)
+        stackView.pinToSuperview()
         contentManager?.configure(stackView: stackView)
     }
 }
