@@ -6,10 +6,6 @@ import UIKit
 
 final class {{ custom_parameters.cell }}Cell: UITableViewCell {
     
-    // MARK: - Aliases
-
-    private typealias LayoutConstant = {{ custom_parameters.cell }}CellConstants
-    
     // MARK: - Properties
     
     // MARK: - UITableViewCell
@@ -59,7 +55,10 @@ extension {{ custom_parameters.cell }}Cell: Designable {
     }
 }
 
-// MARK: - {{ custom_parameters.cell }}CellConstants
+// MARK: - Constants
 
-private struct {{ custom_parameters.cell }}CellConstants {
+extension {{ custom_parameters.cell }}Cell {
+
+    enum Constants {
+    }
 }
