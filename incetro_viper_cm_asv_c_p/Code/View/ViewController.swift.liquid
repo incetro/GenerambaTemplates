@@ -1,5 +1,13 @@
 {% include 'header' %}
 
+{% assign module_name_tail_count = custom_parameters.plain | size | minus: 1 %}
+{% assign module_name_first_letter = custom_parameters.plain | slice: 0 | downcase %}
+{% assign module_name_without_first_letter = custom_parameters.plain | slice: 1, module_name_tail_count %}
+{% assign module_name_uncap = module_name_first_letter | append: module_name_without_first_letter %}
+{% comment %}
+{% It's necessary to use `swiftlint autocorrect` after generating this module because there will be empty lines %}
+{% endcomment %}
+
 import UIKit
 import AloeStackView
 import TransitionHandler
@@ -90,7 +98,7 @@ extension {{ prefix }}{{ module_info.name }}ViewController: Localizable {
 extension {{ prefix }}{{ module_info.name }}ViewController: Designable {
 
     func design(appearance: Appearance) {
-        let design = appearance.{{ prefix }}{{ module_info.name }}ViewControllerAppearance
+        let design = appearance.{{ prefix }}{{ module_name_uncap }}ViewControllerAppearance
         view.backgroundColor = design.backgroundColor
     }
 }

@@ -9,7 +9,7 @@
 {% It's necessary to use `swiftlint autocorrect` after generating this module because there will be empty lines %}
 {% endcomment %}
 
-import Foundation
+import TransitionHandler
 
 // MARK: - {{ prefix }}{{ module_info.name }}Presenter
 
@@ -46,7 +46,7 @@ final class {{ prefix }}{{ module_info.name }}Presenter {
         {{ plain_uncap }}: {{ custom_parameters.plain }}PlainObject
     ) {
         self.viewModelDesigner = viewModelDesigner
-        self.{{ plain_uncap }} = {{ replacement_uncap }}
+        self.{{ plain_uncap }} = {{ plain_uncap }}
     }
 }
 
