@@ -33,7 +33,7 @@ extension {{ custom_parameters.cell }}CellPresenterFactoryImplementation: {{ cus
 
     func controller(with viewModel: {{ custom_parameters.cell }}CellViewModelProtocol, tableView: UITableView) -> {{ custom_parameters.cell }}CellPresenter {
         {{ custom_parameters.cell }}CellPresenter.registerCell(on: tableView)
-        let {{ module_info.name | downcase }}Router = container.resolve({{ module_info.name }}RouterInput.self, argument: transitionHandler).unwrap()
-        return {{ custom_parameters.cell }}CellPresenter(viewModel: viewModel, {{ module_info.name | downcase }}Router: {{ module_info.name | downcase }}Router)
+        let {{ module_name_uncap }}Router = container.resolve({{ module_info.name }}RouterInput.self, argument: transitionHandler).unwrap()
+        return {{ custom_parameters.cell }}CellPresenter(viewModel: viewModel, {{ module_name_uncap }}Router: {{ module_name_uncap }}Router)
     }
 }

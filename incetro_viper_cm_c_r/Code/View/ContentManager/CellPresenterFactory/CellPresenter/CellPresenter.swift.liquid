@@ -12,16 +12,16 @@ final class {{ custom_parameters.cell }}CellPresenter: GenericCellPresenter<{{ c
     private let viewModel: {{ custom_parameters.cell }}CellViewModelProtocol
     
     /// {{ module_info.name }}Router instance
-    private unowned var {{ module_info.name | downcase }}Router: {{ module_info.name }}RouterInput
+    private unowned var {{ module_name_uncap }}Router: {{ module_info.name }}RouterInput
 
     // MARK: - Initializers
 
     /// Default initializer
     ///
     /// - Parameter viewModel: ViewModel instance
-    init(viewModel: {{ custom_parameters.cell }}CellViewModelProtocol, {{ prefix }}{{ module_info.name | downcase }}Router: {{ prefix }}{{ module_info.name }}RouterInput) {
+    init(viewModel: {{ custom_parameters.cell }}CellViewModelProtocol, {{ prefix }}{{ module_name_uncap }}Router: {{ prefix }}{{ module_info.name }}RouterInput) {
         self.viewModel = viewModel
-        self.{{ module_info.name | downcase }}Router = {{ module_info.name | downcase }}Router
+        self.{{ module_name_uncap }}Router = {{ module_name_uncap }}Router
     }
     
     // MARK: - CellPresenter
