@@ -14,8 +14,8 @@ protocol {{ custom_parameters.cell }}CellViewModelDesigner {
 extension {{ custom_parameters.cell }}CellViewModelDesigner {
 
     /// Converts [{{ custom_parameters.plain }}PlainObject] to [{{ custom_parameters.cell }}CellViewModelProtocol]
-    /// - Parameter {{ custom_parameters.entities | downcase }}: some {{ custom_parameters.entities | downcase }}
-    func viewModels(from {{ custom_parameters.entities | downcase }}: [{{ custom_parameters.plain }}PlainObject]) -> [{{ custom_parameters.cell }}CellViewModelProtocol] {
-        return {{ custom_parameters.entities | downcase }}.map(viewModel)
+    /// - Parameter {{ entities_uncap }}: some {{ entities_uncap }}
+    func viewModels(from {{ entities_uncap }}: [{{ custom_parameters.plain }}PlainObject]) -> [{{ custom_parameters.cell }}CellViewModelProtocol] {
+        return {{ entities_uncap }}.map(viewModel)
     }
 }

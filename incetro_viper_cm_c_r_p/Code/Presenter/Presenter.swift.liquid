@@ -18,7 +18,7 @@ final class {{ prefix }}{{ module_info.name }}Presenter {
     private let viewModelDesigner: {{ custom_parameters.cell }}CellViewModelDesigner
     
     /// Current displaying routes
-    private var {{ custom_parameters.entities | downcase }}: [{{ custom_parameters.plain }}PlainObject] = []
+    private var {{ entities_uncap }}: [{{ custom_parameters.plain }}PlainObject] = []
 
     /// Interactor instance
     var interactor: {{ prefix }}{{ module_info.name }}InteractorInput?
@@ -37,9 +37,9 @@ final class {{ prefix }}{{ module_info.name }}Presenter {
 
     // MARK - Private
 
-    private func add({{ custom_parameters.entities | downcase }}: [{{ custom_parameters.plain }}PlainObject]) {
-        self.{{ custom_parameters.entities | downcase }}.append(contentsOf: {{ custom_parameters.entities | downcase }})
-        let viewModels = viewModelDesigner.viewModels(from: self.{{ custom_parameters.entities | downcase }})
+    private func add({{ entities_uncap }}: [{{ custom_parameters.plain }}PlainObject]) {
+        self.{{ entities_uncap }}.append(contentsOf: {{ entities_uncap }})
+        let viewModels = viewModelDesigner.viewModels(from: self.{{ entities_uncap }})
         view?.update(viewModels)
     }
 }
@@ -53,7 +53,7 @@ extension {{ prefix }}{{ module_info.name }}Presenter: {{ prefix }}{{ module_inf
     }
 
     func didTriggerReload{{ custom_parameters.entities }}Event() {
-        {{ custom_parameters.entities | downcase }}.removeAll()
+        {{ entities_uncap }}.removeAll()
         interactor?.obtain{{ custom_parameters.entities }}()
     }
 
@@ -71,10 +71,10 @@ extension {{ prefix }}{{ module_info.name }}Presenter: {{ prefix }}{{ module_inf
         view?.showErrorMessage(errorMessage)
     }
 
-    func obtain{{ custom_parameters.entities }}Success({{ custom_parameters.entities | downcase }}: [{{ custom_parameters.plain }}PlainObject]) {
+    func obtain{{ custom_parameters.entities }}Success({{ entities_uncap }}: [{{ custom_parameters.plain }}PlainObject]) {
         view?.stopIndication()
         view?.stopPullToRefreshIfNeeded()
-        add({{ custom_parameters.entities | downcase }}: {{ custom_parameters.entities | downcase }})
+        add({{ entities_uncap }}: {{ entities_uncap }})
     }
 
     func pagintaionHasBeenCompleted() {

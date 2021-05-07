@@ -29,3 +29,19 @@
 {% comment %}
 {% It's necessary to use `swiftlint autocorrect` after generating this module because there will be empty lines %}
 {% endcomment %}
+
+{% assign cell_tail_count = custom_parameters.cell | size | minus: 1 %}
+{% assign cell_first_letter = custom_parameters.cell | slice: 0 | downcase %}
+{% assign cell_without_first_letter = custom_parameters.cell | slice: 1, cell_tail_count %}
+{% assign cell_uncap = cell_first_letter | append: cell_without_first_letter %}
+{% comment %}
+{% It's necessary to use `swiftlint autocorrect` after generating this module because there will be empty lines %}
+{% endcomment %}
+
+{% assign entities_tail_count = custom_parameters.entities | size | minus: 1 %}
+{% assign entities_first_letter = custom_parameters.entities | slice: 0 | downcase %}
+{% assign entities_without_first_letter = custom_parameters.entities | slice: 1, entities_tail_count %}
+{% assign entities_uncap = entities_first_letter | append: entities_without_first_letter %}
+{% comment %}
+{% It's necessary to use `swiftlint autocorrect` after generating this module because there will be empty lines %}
+{% endcomment %}
