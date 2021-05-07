@@ -3,9 +3,9 @@
 import UIKit
 import Swinject
 
-// MARK: - {{ custom_parameters.cell }}CellControllerFactoryImplementation
+// MARK: - {{ custom_parameters.cell }}CellPresenterFactoryImplementation
 
-final class {{ custom_parameters.cell }}CellControllerFactoryImplementation {
+final class {{ custom_parameters.cell }}CellPresenterFactoryImplementation {
 
     // MARK: - Properties
     
@@ -27,13 +27,13 @@ final class {{ custom_parameters.cell }}CellControllerFactoryImplementation {
     }
 }
 
-// MARK: - {{ custom_parameters.cell }}CellControllerFactory
+// MARK: - {{ custom_parameters.cell }}CellPresenterFactory
 
-extension {{ custom_parameters.cell }}CellControllerFactoryImplementation: {{ custom_parameters.cell }}CellControllerFactory {
+extension {{ custom_parameters.cell }}CellPresenterFactoryImplementation: {{ custom_parameters.cell }}CellPresenterFactory {
 
-    func controller(with viewModel: {{ custom_parameters.cell }}CellViewModelProtocol, tableView: UITableView) -> {{ custom_parameters.cell }}CellController {
-        {{ custom_parameters.cell }}CellController.registerCell(on: tableView)
+    func controller(with viewModel: {{ custom_parameters.cell }}CellViewModelProtocol, tableView: UITableView) -> {{ custom_parameters.cell }}CellPresenter {
+        {{ custom_parameters.cell }}CellPresenter.registerCell(on: tableView)
         let {{ module_info.name | downcase }}Router = container.resolve({{ module_info.name }}RouterInput.self, argument: transitionHandler).unwrap()
-        return {{ custom_parameters.cell }}CellController(viewModel: viewModel, {{ module_info.name | downcase }}Router: {{ module_info.name | downcase }}Router)
+        return {{ custom_parameters.cell }}CellPresenter(viewModel: viewModel, {{ module_info.name | downcase }}Router: {{ module_info.name | downcase }}Router)
     }
 }

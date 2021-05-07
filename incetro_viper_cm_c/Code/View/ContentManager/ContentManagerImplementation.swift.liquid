@@ -9,10 +9,10 @@ final class {{ prefix }}{{ module_info.name }}ContentManagerImplementation: NSOb
     // MARK: - Properties
     
     /// {{ custom_parameters.cell }} controllers factory
-    private let controllersFactory: {{ custom_parameters.cell }}CellControllerFactory
+    private let controllersFactory: {{ custom_parameters.cell }}CellPresenterFactory
     
     /// Current controllers which manipulates tableView's cells
-    private var controllers: [{{ custom_parameters.cell }}CellController] = []
+    private var controllers: [{{ custom_parameters.cell }}CellPresenter] = []
 
     /// UITableView with {{ custom_parameters.cell }} cells
     var tableView: UITableView?
@@ -22,7 +22,7 @@ final class {{ prefix }}{{ module_info.name }}ContentManagerImplementation: NSOb
     /// Default initializer
     ///
     /// - Parameter controllersFactory: {{ custom_parameters.cell | downcase }} controllers factory
-    init(controllersFactory: {{ custom_parameters.cell }}CellControllerFactory) {
+    init(controllersFactory: {{ custom_parameters.cell }}CellPresenterFactory) {
         self.controllersFactory = controllersFactory
         super.init()
     }

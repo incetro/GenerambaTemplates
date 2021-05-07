@@ -1,0 +1,19 @@
+{% include 'header' %}
+
+import UIKit
+
+// MARK: - {{ custom_parameters.cell }}CellPresenterFactoryImplementation
+
+final class {{ custom_parameters.cell }}CellPresenterFactoryImplementation {
+
+}
+
+// MARK: - {{ custom_parameters.cell }}CellPresenterFactory
+
+extension {{ custom_parameters.cell }}CellPresenterFactoryImplementation: {{ custom_parameters.cell }}CellPresenterFactory {
+
+    func controller(with viewModel: {{ custom_parameters.cell }}CellViewModelProtocol, tableView: UITableView) -> {{ custom_parameters.cell }}CellPresenter {
+        {{ custom_parameters.cell }}CellPresenter.registerCell(on: tableView)
+        return {{ custom_parameters.cell }}CellPresenter(viewModel: viewModel)
+    }
+}

@@ -2,9 +2,9 @@
 
 import UIKit
 
-// MARK: - {{ custom_parameters.cell }}CellController
+// MARK: - {{ custom_parameters.cell }}CellPresenter
 
-final class {{ custom_parameters.cell }}CellController: GenericCellController<{{ custom_parameters.cell }}Cell> {
+final class {{ custom_parameters.cell }}CellPresenter: GenericCellPresenter<{{ custom_parameters.cell }}Cell> {
     
     // MARK: - Properties
     
@@ -24,7 +24,7 @@ final class {{ custom_parameters.cell }}CellController: GenericCellController<{{
         self.{{ module_info.name | downcase }}Router = {{ module_info.name | downcase }}Router
     }
     
-    // MARK: - CellController
+    // MARK: - CellPresenter
     
     override func configureCell(_ cell: {{ custom_parameters.cell }}Cell) {
         cell.setup(with: viewModel)

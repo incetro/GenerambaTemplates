@@ -2,34 +2,30 @@
 
 import UIKit
 
-// MARK: - {{ custom_parameters.cell }}CellController
+// MARK: - {{ custom_parameters.cell }}CellPresenter
 
-final class {{ custom_parameters.cell }}CellController: GenericCellController<{{ custom_parameters.cell }}Cell> {
+final class {{ custom_parameters.cell }}CellPresenter: GenericCellPresenter<{{ custom_parameters.cell }}Cell> {
     
     // MARK: - Properties
     
     /// ViewModel instance
     private let viewModel: {{ custom_parameters.cell }}CellViewModelProtocol
     
-    /// {{ module_info.name }}Router instance
-    private unowned var {{ module_info.name | downcase }}Router: {{ module_info.name }}RouterInput
-
     // MARK: - Initializers
 
     /// Default initializer
     ///
     /// - Parameter viewModel: ViewModel instance
-    init(viewModel: {{ custom_parameters.cell }}CellViewModelProtocol, {{ prefix }}{{ module_info.name | downcase }}Router: {{ prefix }}{{ module_info.name }}RouterInput) {
+    init(viewModel: {{ custom_parameters.cell }}CellViewModelProtocol) {
         self.viewModel = viewModel
-        self.{{ module_info.name | downcase }}Router = {{ module_info.name | downcase }}Router
     }
     
-    // MARK: - CellController
+    // MARK: - CellPresenter
     
     override func configureCell(_ cell: {{ custom_parameters.cell }}Cell) {
         cell.setup(with: viewModel)
     }
-
+    
     override func cellSize(reusableCellHolder: UITableView) -> CGSize {
         CGSize(width: reusableCellHolder.frame.width, height: 52)
     }

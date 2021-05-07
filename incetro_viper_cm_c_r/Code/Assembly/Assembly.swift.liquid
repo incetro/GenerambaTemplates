@@ -58,9 +58,9 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
             return interactor
         }
         
-        container.register({{ custom_parameters.cell }}CellControllerFactory.self) { (resolver, transitionHandler: TransitionHandler) in
+        container.register({{ custom_parameters.cell }}CellPresenterFactory.self) { (resolver, transitionHandler: TransitionHandler) in
             let container = resolver.resolve(Container.self).unwrap()
-            return {{ custom_parameters.cell }}CellControllerFactoryImplementation(container: container, transitionHandler: transitionHandler)
+            return {{ custom_parameters.cell }}CellPresenterFactoryImplementation(container: container, transitionHandler: transitionHandler)
         }
         
         container.register({{ custom_parameters.cell }}CellViewModelDesigner.self) { resolver in
@@ -68,7 +68,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
         }
             
         container.register({{ prefix }}{{ module_info.name }}ContentManager.self) { (resolver, transitionHandler: TransitionHandler) in
-            let controllersFactory = resolver.resolve({{ custom_parameters.cell }}CellControllerFactory.self, argument: transitionHandler).unwrap()
+            let controllersFactory = resolver.resolve({{ custom_parameters.cell }}CellPresenterFactory.self, argument: transitionHandler).unwrap()
             let contentManager = {{ prefix }}{{ module_info.name }}ContentManagerImplementation(controllersFactory: controllersFactory)
             return contentManager
         }

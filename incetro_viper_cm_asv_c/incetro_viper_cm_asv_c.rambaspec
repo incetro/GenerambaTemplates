@@ -1,6 +1,6 @@
 # Template information section
 name: "incetro_viper_cm_asv_c"
-summary: "Swift VIPER module template with UIViewController playing as a View and with CellController approach"
+summary: "Swift VIPER module template with UIViewController playing as a View and with CellPresenter approach"
 author: "incetro"
 version: "0.0.1"
 license: "MIT"
