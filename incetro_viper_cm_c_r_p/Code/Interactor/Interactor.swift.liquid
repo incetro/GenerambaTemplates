@@ -34,13 +34,13 @@ final class {{ prefix }}{{ module_info.name }}Interactor {
             self?.{{ service_uncap }}Service
                 .obtain(page: page, pageSize: pageSize)
                 .async()
-                .success { ({{ service_uncap }}, pagination) in
-                    paginator.received(results: {{ service_uncap }}, total: pagination.totalCount)
+                .success { ({{ entities_uncap }}, pagination) in
+                    paginator.received(results: {{ entities_uncap }}, total: pagination.totalCount)
                 }
                 .failure(paginator.failed)
         }
-        paginator.resultsHandler = { [weak self] (paginator, {{ service_uncap }}) in
-            self?.output?.obtain{{ custom_parameters.entities }}Success({{ service_uncap }}: {{ service_uncap }})
+        paginator.resultsHandler = { [weak self] (paginator, {{ entities_uncap }}) in
+            self?.output?.obtain{{ custom_parameters.entities }}Success({{ entities_uncap }}: {{ entities_uncap }})
         }
         paginator.completionHandler = { [weak self] _ in
             self?.output?.pagintaionHasBeenCompleted()
