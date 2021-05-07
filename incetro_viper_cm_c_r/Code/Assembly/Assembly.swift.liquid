@@ -19,7 +19,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
     // MARK: - Useful
 
     func obtainViewController() -> {{ prefix }}{{ module_info.name }}ViewController {
-        return container.resolve({{ prefix }}{{ module_info.name }}ViewController.self).unwrap()
+        container.resolve({{ prefix }}{{ module_info.name }}ViewController.self).unwrap()
     }
     
     // MARK: - Assembly
@@ -64,7 +64,7 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
         }
         
         container.register({{ custom_parameters.cell }}CellViewModelDesigner.self) { resolver in
-            return {{ custom_parameters.cell }}CellViewModelDesignerImplementation()
+            {{ custom_parameters.cell }}CellViewModelDesignerImplementation()
         }
             
         container.register({{ prefix }}{{ module_info.name }}ContentManager.self) { (resolver, transitionHandler: TransitionHandler) in

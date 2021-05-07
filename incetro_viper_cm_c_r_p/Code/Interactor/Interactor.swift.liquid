@@ -12,16 +12,16 @@ final class {{ prefix }}{{ module_info.name }}Interactor {
     weak var output: {{ prefix }}{{ module_info.name }}InteractorOutput?
 
     /// {{ custom_parameters.entities }}Service instance
-    private let {{ service_uncap }}Service: {{ custom_parameters.entities }}Service
+    private let {{ service_uncap }}Service: {{ custom_parameters.service }}Service
 
     /// Paginator instance
     private var paginator = Paginator<{{ custom_parameters.plain }}PlainObject>(pageSize: 10)
 
     /// Default initializer
     /// - Parameters:
-    ///   - {{ service_uncap }}Service: {{ custom_parameters.entities }}Service instance
+    ///   - {{ service_uncap }}Service: {{ custom_parameters.service }}Service instance
     init(
-        {{ service_uncap }}Service: {{ custom_parameters.entities }}Service
+        {{ service_uncap }}Service: {{ custom_parameters.service }}Service
     ) {
         self.{{ service_uncap }}Service = {{ service_uncap }}Service
         setupPaginator()

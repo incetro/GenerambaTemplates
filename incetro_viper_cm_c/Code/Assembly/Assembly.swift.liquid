@@ -59,11 +59,11 @@ final class {{ prefix }}{{ module_info.name }}ModuleAssembly: CollectableAssembl
         }
         
         container.register({{ custom_parameters.cell }}CellPresenterFactory.self) { resolver in
-            return {{ custom_parameters.cell }}CellPresenterFactoryImplementation()
+            {{ custom_parameters.cell }}CellPresenterFactoryImplementation()
         }
         
         container.register({{ custom_parameters.cell }}CellViewModelDesigner.self) { resolver in
-            return {{ custom_parameters.cell }}CellViewModelDesignerImplementation()
+            {{ custom_parameters.cell }}CellViewModelDesignerImplementation()
         }
             
         container.register({{ prefix }}{{ module_info.name }}ContentManager.self) { resolver in
