@@ -14,8 +14,8 @@ struct {{ prefix }}{{ module_info.name }}ViewModel: {{ prefix }}{{ module_info.n
 
     /// Default initializer
     /// - Parameters:
-    ///   - {{ plain_uncap }}: current {{ custom_parameters.plain }} model
-    init({{ plain_uncap }}: {{ plain_uncap }}PlainObject) {
+    ///   - {{ plain_uncap }}: current {{ plain_uncap }} model
+    init({{ plain_uncap }}: {{ custom_parameters.plain }}PlainObject) {
         self.{{ plain_uncap }} = {{ plain_uncap }}
     }
 }
