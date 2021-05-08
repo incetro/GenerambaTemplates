@@ -11,28 +11,20 @@ final class {{ prefix }}{{ module_info.name }}Interactor {
     /// Presenter instance
     weak var output: {{ prefix }}{{ module_info.name }}InteractorOutput?
 
-    /// {{ prefix }}{{ custom_parameters.service }}Service instance
-    private let {{ prefix }}{{ service_uncap }}Service: {{ prefix }}{{ custom_parameters.service }}Service
+    /// {{ custom_parameters.service }}Service instance
+    private let {{ service_uncap }}Service: {{ custom_parameters.service }}Service
 
     // MARK: - Initializers
 
     /// Default initializer
     /// - Parameters:
     ///   - {{ service_uncap }}Service: {{ custom_parameters.service }}Service instance
-    init({{ prefix }}{{ service_uncap }}Service: {{ prefix }}{{ custom_parameters.service }}Service) {
-        self.{{ prefix }}{{ service_uncap }}Service = {{ prefix }}{{ service_uncap }}Service
+    init({{ service_uncap }}Service: {{ custom_parameters.service }}Service) {
+        self.{{ service_uncap }}Service = {{ service_uncap }}Service
     }
 }
 
 // MARK: - {{ prefix }}{{ module_info.name }}InteractorInput
 
 extension {{ prefix }}{{ module_info.name }}Interactor: {{ prefix }}{{ module_info.name }}InteractorInput {
-    
-    func obtain{{ custom_parameters.plain }}() -> {{ custom_parameters.plain }}PlainObject {
-    	do {
-            return try {{ prefix }}{{ service_uncap }}Service.obtain().sync().get()
-        } catch {
-            fatalError(error.localizedDescription)
-        }
-    }
 }

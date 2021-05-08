@@ -24,20 +24,19 @@ final class {{ prefix }}{{ module_info.name }}Presenter {
     private let viewModelDesigner: {{ prefix }}{{ module_info.name }}ViewModelDesigner
 
     /// Current {{ plain_uncap }} instance
-    private let {{ plain_uncap }}: {{ custom_parameters.plain }}PlainObject
+    private lazy var {{ plain_uncap }}: {{ custom_parameters.plain }}PlainObject = {
+        interactor.unwrap().obtain{{ custom_parameters.plain }}()
+    }()
 
     // MARK: - Initializers
 
     /// Default initializer
-    /// - Parameters:
-    ///   - viewModelDesigner: {{ prefix }}{{ module_info.name }}ViewModelProtocol factory
-    ///   - {{ plain_uncap }}: current {{ plain_uncap }} instance
+    ///
+    /// - Parameter viewModelDesigner: {{ prefix }}{{ module_info.name }}ViewModelProtocol factory
     init(
-        viewModelDesigner: {{ prefix }}{{ module_info.name }}ViewModelDesigner,
-        {{ plain_uncap }}: {{ custom_parameters.plain }}PlainObject
+        viewModelDesigner: {{ prefix }}{{ module_info.name }}ViewModelDesigner
     ) {
         self.viewModelDesigner = viewModelDesigner
-        self.{{ plain_uncap }} = {{ plain_uncap }}
     }
 }
 
